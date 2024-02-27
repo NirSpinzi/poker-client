@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace projuct2
 {
+    //hello
     public partial class Game_Menu_Form : Form
     {
         public Game_Menu_Form()
