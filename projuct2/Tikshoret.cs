@@ -118,6 +118,15 @@ namespace projuct2
                             string[] parts = incommingData.Split(':');
                             Game.Invoke((Action)delegate { Game.IsHost(parts[1]); });
                         }
+                        else if (incommingData.StartsWith("join"))
+                        {
+                            string[] parts = incommingData.Split(':');
+                            if (parts[1].Equals("invalid")|| parts[1].Equals("valid"))
+                            {
+                                GameMenu.Invoke((Action)delegate { GameMenu.JoinRequest(incommingData); });
+                            }
+                            else Game.Invoke((Action)delegate { Game.JoinGame(incommingData); });
+                        }
                     }
                 }
 

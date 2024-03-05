@@ -20,35 +20,14 @@ namespace projuct2
             //if (isHost())
             //    start_game_button.Visible = true;
         }
-        /*private bool isHost()
+        public Game_Form(string Nick)
         {
+            InitializeComponent();
             Tikshoret.SendMessage("isHost");
-            if (ReadMessage().Equals("true"))
-                return true;
-            else return false;
+            Your_Name_label.Text = Nick;
+            //if (isHost())
+            //    start_game_button.Visible = true;
         }
-        private string ReadMessage()
-        {
-            try
-            {
-                // Define a buffer to hold the incoming data
-                byte[] bytesFrom = new byte[1024];
-                // Get the network stream from the TCP client
-                NetworkStream ns = Tikshoret.client.GetStream();
-                // Read the incoming data into the buffer
-                ns.Read(bytesFrom, 0, 32);
-                // Convert the incoming data into a string
-                string dataFromServer = Encoding.ASCII.GetString(bytesFrom);
-
-                return (dataFromServer);
-            }
-            catch (Exception ex)
-            {
-                // Display an error message if an exception occurs
-                MessageBox.Show(ex.ToString());
-                return "error";
-            }
-        }*/
         public void IsHost(string info)
         {
             if (!info.Equals("true"))
@@ -59,7 +38,34 @@ namespace projuct2
             Form form= new poker_hands_form();
             form.Show();
         }
+        public void JoinGame(string info)
+        {
+            string[] parts = info.Split(':');
+            if (parts[1].Equals("2"))
+            {
+                Player2Name.Text = parts[2];
+            }
+            else if (parts[1].Equals("3"))
+            {
 
+            }
+            else if (parts[1].Equals("4"))
+            {
+
+            }
+            else if (parts[1].Equals("5"))
+            {
+
+            }
+            else if (parts[1].Equals("6"))
+            {
+
+            }
+            else if (parts[1].Equals("7"))
+            {
+
+            }
+        }
         private void start_game_button_Click(object sender, EventArgs e)
         {
                 Tikshoret.SendMessage("game:start");
@@ -72,6 +78,11 @@ namespace projuct2
                 
             }
             else MessageBox.Show("You need at least 2 players to start a game");
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
