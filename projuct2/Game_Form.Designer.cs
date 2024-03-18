@@ -43,8 +43,8 @@
             this.poker_hands_button = new System.Windows.Forms.Button();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.start_game_button = new System.Windows.Forms.Button();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.MainCard2 = new System.Windows.Forms.PictureBox();
+            this.MainCard1 = new System.Windows.Forms.PictureBox();
             this.Player4Name = new System.Windows.Forms.Label();
             this.Player2Name = new System.Windows.Forms.Label();
             this.Player5Name = new System.Windows.Forms.Label();
@@ -62,8 +62,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainCard2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainCard1)).BeginInit();
             this.SuspendLayout();
             // 
             // Your_Name_label
@@ -206,25 +206,25 @@
             this.start_game_button.UseVisualStyleBackColor = true;
             this.start_game_button.Click += new System.EventHandler(this.start_game_button_Click);
             // 
-            // pictureBox12
+            // MainCard2
             // 
-            this.pictureBox12.BackColor = System.Drawing.Color.DarkGreen;
-            this.pictureBox12.Location = new System.Drawing.Point(704, 396);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(56, 65);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 15;
-            this.pictureBox12.TabStop = false;
+            this.MainCard2.BackColor = System.Drawing.Color.DarkGreen;
+            this.MainCard2.Location = new System.Drawing.Point(704, 396);
+            this.MainCard2.Name = "MainCard2";
+            this.MainCard2.Size = new System.Drawing.Size(56, 65);
+            this.MainCard2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MainCard2.TabIndex = 15;
+            this.MainCard2.TabStop = false;
             // 
-            // pictureBox13
+            // MainCard1
             // 
-            this.pictureBox13.BackColor = System.Drawing.Color.DarkGreen;
-            this.pictureBox13.Location = new System.Drawing.Point(642, 396);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(56, 65);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox13.TabIndex = 16;
-            this.pictureBox13.TabStop = false;
+            this.MainCard1.BackColor = System.Drawing.Color.DarkGreen;
+            this.MainCard1.Location = new System.Drawing.Point(642, 396);
+            this.MainCard1.Name = "MainCard1";
+            this.MainCard1.Size = new System.Drawing.Size(56, 65);
+            this.MainCard1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MainCard1.TabIndex = 16;
+            this.MainCard1.TabStop = false;
             // 
             // Player4Name
             // 
@@ -286,8 +286,8 @@
             this.Controls.Add(this.Player5Name);
             this.Controls.Add(this.Player2Name);
             this.Controls.Add(this.Player4Name);
-            this.Controls.Add(this.pictureBox13);
-            this.Controls.Add(this.pictureBox12);
+            this.Controls.Add(this.MainCard1);
+            this.Controls.Add(this.MainCard2);
             this.Controls.Add(this.start_game_button);
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.poker_hands_button);
@@ -315,8 +315,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainCard2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainCard1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -337,8 +337,8 @@
         private System.Windows.Forms.Button poker_hands_button;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Button start_game_button;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox MainCard2;
+        private System.Windows.Forms.PictureBox MainCard1;
         private System.Windows.Forms.Label Player4Name;
         private System.Windows.Forms.Label Player2Name;
         private System.Windows.Forms.Label Player5Name;

@@ -72,7 +72,7 @@ namespace projuct2
             {
                 Hide();
                 // Create a new instance of Form2 and pass the client object to it.
-                Tikshoret.GameMenu = new Game_Menu_Form();
+                Tikshoret.GameMenu = new Game_Menu_Form(username_box.Text);
                 this.Invoke(new Action(() => Tikshoret.GameMenu.ShowDialog()));
             }
             // If capthca is incorrect

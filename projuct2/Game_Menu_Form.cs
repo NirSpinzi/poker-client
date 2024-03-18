@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace projuct2
 {
     //hello
     public partial class Game_Menu_Form : Form
     {
-        public Game_Menu_Form()
+        string Username;
+        public Game_Menu_Form(string username)
         {
+            Username = username;
             InitializeComponent();
             Tikshoret.BeginRead();
         }
@@ -40,7 +43,7 @@ namespace projuct2
             {
                 Hide();
                 // Create a new instance of Form2 and pass the client object to it.
-                Tikshoret.Game = new Game_Form();
+                Tikshoret.Game = new Game_Form(Username);
                 this.Invoke(new Action(() => Tikshoret.Game.ShowDialog()));
             }
             else MessageBox.Show("There are no available lobbys");

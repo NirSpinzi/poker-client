@@ -127,6 +127,10 @@ namespace projuct2
                             }
                             else Game.Invoke((Action)delegate { Game.JoinGame(incommingData); });
                         }
+                        else if (incommingData.StartsWith("table_"))
+                        {
+                            Game.Invoke((Action)delegate { Game.JoinGame(incommingData); });
+                        }
                     }
                 }
 
