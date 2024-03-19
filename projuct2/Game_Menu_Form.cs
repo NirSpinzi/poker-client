@@ -43,7 +43,7 @@ namespace projuct2
             {
                 Hide();
                 // Create a new instance of Form2 and pass the client object to it.
-                Tikshoret.Game = new Game_Form(Username);
+                Tikshoret.Game = new Game_Form(Username + ":" + parts[2]);
                 this.Invoke(new Action(() => Tikshoret.Game.ShowDialog()));
             }
             else MessageBox.Show("There are no available lobbys");
@@ -55,7 +55,7 @@ namespace projuct2
             {
                 Hide();
                 // Create a new instance of Form2 and pass the client object to it.
-                Tikshoret.Game = new Game_Form(parts[2]);
+                Tikshoret.Game = new Game_Form(parts[2] + ":" + parts[3]);
                 this.Invoke(new Action(() => Tikshoret.Game.ShowDialog()));
             }
         }

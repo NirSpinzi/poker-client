@@ -76,6 +76,11 @@
     <Compile Include="poker_hands_form.Designer.cs">
       <DependentUpon>poker_hands_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Regist_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +120,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -167,6 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="picFolder\Circle.png1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="picFolder\bakc_scard34.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="picFolder\bakc_scard34 - sideways.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

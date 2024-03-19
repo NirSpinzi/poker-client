@@ -30,6 +30,44 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game_Form));
             this.Your_Name_label = new System.Windows.Forms.Label();
+            this.poker_hands_button = new System.Windows.Forms.Button();
+            this.start_game_button = new System.Windows.Forms.Button();
+            this.Player4Name = new System.Windows.Forms.Label();
+            this.Player2Name = new System.Windows.Forms.Label();
+            this.Player5Name = new System.Windows.Forms.Label();
+            this.Player6Name = new System.Windows.Forms.Label();
+            this.Player3Name = new System.Windows.Forms.Label();
+            this.Player7Name = new System.Windows.Forms.Label();
+            this.Player1Money = new System.Windows.Forms.Label();
+            this.Player4Money = new System.Windows.Forms.Label();
+            this.Player7Money = new System.Windows.Forms.Label();
+            this.Player5Money = new System.Windows.Forms.Label();
+            this.Player2Money = new System.Windows.Forms.Label();
+            this.Player3Money = new System.Windows.Forms.Label();
+            this.Player6Money = new System.Windows.Forms.Label();
+            this.FoldButton = new System.Windows.Forms.Button();
+            this.RaiseButton = new System.Windows.Forms.Button();
+            this.CallButton = new System.Windows.Forms.Button();
+            this.Player3Card2 = new System.Windows.Forms.PictureBox();
+            this.Player5Card1 = new System.Windows.Forms.PictureBox();
+            this.Player5Card2 = new System.Windows.Forms.PictureBox();
+            this.Player3Card1 = new System.Windows.Forms.PictureBox();
+            this.Player6Card1 = new System.Windows.Forms.PictureBox();
+            this.Player2Card1 = new System.Windows.Forms.PictureBox();
+            this.Player4Card1 = new System.Windows.Forms.PictureBox();
+            this.Player4Card2 = new System.Windows.Forms.PictureBox();
+            this.Player7Card2 = new System.Windows.Forms.PictureBox();
+            this.Player7Card1 = new System.Windows.Forms.PictureBox();
+            this.Player6Card2 = new System.Windows.Forms.PictureBox();
+            this.Player2Card2 = new System.Windows.Forms.PictureBox();
+            this.TableCard5 = new System.Windows.Forms.PictureBox();
+            this.TableCard4 = new System.Windows.Forms.PictureBox();
+            this.TableCard3 = new System.Windows.Forms.PictureBox();
+            this.TableCard2 = new System.Windows.Forms.PictureBox();
+            this.MainCard1 = new System.Windows.Forms.PictureBox();
+            this.MainCard2 = new System.Windows.Forms.PictureBox();
+            this.TableCard1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.Player6Box = new System.Windows.Forms.PictureBox();
             this.Player2Box = new System.Windows.Forms.PictureBox();
             this.Player5Box = new System.Windows.Forms.PictureBox();
@@ -39,18 +77,26 @@
             this.Player1Box = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.poker_hands_button = new System.Windows.Forms.Button();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.start_game_button = new System.Windows.Forms.Button();
-            this.MainCard2 = new System.Windows.Forms.PictureBox();
-            this.MainCard1 = new System.Windows.Forms.PictureBox();
-            this.Player4Name = new System.Windows.Forms.Label();
-            this.Player2Name = new System.Windows.Forms.Label();
-            this.Player5Name = new System.Windows.Forms.Label();
-            this.Player6Name = new System.Windows.Forms.Label();
-            this.Player3Name = new System.Windows.Forms.Label();
-            this.Player7Name = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Player3Card2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player5Card1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player5Card2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player3Card1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player6Card1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player2Card1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player4Card1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player4Card2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player7Card2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player7Card1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player6Card2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player2Card2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableCard5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableCard4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableCard3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableCard2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainCard1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainCard2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableCard1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player6Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player5Box)).BeginInit();
@@ -60,10 +106,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player1Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MainCard2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MainCard1)).BeginInit();
             this.SuspendLayout();
             // 
             // Your_Name_label
@@ -71,9 +113,415 @@
             this.Your_Name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.Your_Name_label.Location = new System.Drawing.Point(680, 513);
             this.Your_Name_label.Name = "Your_Name_label";
-            this.Your_Name_label.Size = new System.Drawing.Size(49, 23);
+            this.Your_Name_label.Size = new System.Drawing.Size(49, 31);
             this.Your_Name_label.TabIndex = 9;
             this.Your_Name_label.Text = "You";
+            // 
+            // poker_hands_button
+            // 
+            this.poker_hands_button.Location = new System.Drawing.Point(1298, 564);
+            this.poker_hands_button.Name = "poker_hands_button";
+            this.poker_hands_button.Size = new System.Drawing.Size(98, 31);
+            this.poker_hands_button.TabIndex = 12;
+            this.poker_hands_button.Text = "View hands";
+            this.poker_hands_button.UseVisualStyleBackColor = true;
+            this.poker_hands_button.Click += new System.EventHandler(this.poker_hands_button_Click);
+            // 
+            // start_game_button
+            // 
+            this.start_game_button.Location = new System.Drawing.Point(11, 564);
+            this.start_game_button.Name = "start_game_button";
+            this.start_game_button.Size = new System.Drawing.Size(98, 31);
+            this.start_game_button.TabIndex = 14;
+            this.start_game_button.Text = "Start game";
+            this.start_game_button.UseVisualStyleBackColor = true;
+            this.start_game_button.Click += new System.EventHandler(this.start_game_button_Click);
+            // 
+            // Player4Name
+            // 
+            this.Player4Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player4Name.Location = new System.Drawing.Point(953, 513);
+            this.Player4Name.Name = "Player4Name";
+            this.Player4Name.Size = new System.Drawing.Size(49, 31);
+            this.Player4Name.TabIndex = 17;
+            // 
+            // Player2Name
+            // 
+            this.Player2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player2Name.Location = new System.Drawing.Point(953, 40);
+            this.Player2Name.Name = "Player2Name";
+            this.Player2Name.Size = new System.Drawing.Size(49, 32);
+            this.Player2Name.TabIndex = 18;
+            // 
+            // Player5Name
+            // 
+            this.Player5Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player5Name.Location = new System.Drawing.Point(1312, 265);
+            this.Player5Name.Name = "Player5Name";
+            this.Player5Name.Size = new System.Drawing.Size(49, 36);
+            this.Player5Name.TabIndex = 19;
+            // 
+            // Player6Name
+            // 
+            this.Player6Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player6Name.Location = new System.Drawing.Point(406, 40);
+            this.Player6Name.Name = "Player6Name";
+            this.Player6Name.Size = new System.Drawing.Size(49, 32);
+            this.Player6Name.TabIndex = 20;
+            // 
+            // Player3Name
+            // 
+            this.Player3Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player3Name.Location = new System.Drawing.Point(46, 265);
+            this.Player3Name.Name = "Player3Name";
+            this.Player3Name.Size = new System.Drawing.Size(49, 36);
+            this.Player3Name.TabIndex = 21;
+            // 
+            // Player7Name
+            // 
+            this.Player7Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player7Name.Location = new System.Drawing.Point(406, 513);
+            this.Player7Name.Name = "Player7Name";
+            this.Player7Name.Size = new System.Drawing.Size(49, 31);
+            this.Player7Name.TabIndex = 22;
+            // 
+            // Player1Money
+            // 
+            this.Player1Money.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Player1Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player1Money.Location = new System.Drawing.Point(642, 561);
+            this.Player1Money.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player1Money.Name = "Player1Money";
+            this.Player1Money.Size = new System.Drawing.Size(118, 24);
+            this.Player1Money.TabIndex = 40;
+            // 
+            // Player4Money
+            // 
+            this.Player4Money.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Player4Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player4Money.Location = new System.Drawing.Point(924, 558);
+            this.Player4Money.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player4Money.Name = "Player4Money";
+            this.Player4Money.Size = new System.Drawing.Size(118, 24);
+            this.Player4Money.TabIndex = 41;
+            this.Player4Money.Visible = false;
+            // 
+            // Player7Money
+            // 
+            this.Player7Money.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Player7Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player7Money.Location = new System.Drawing.Point(374, 564);
+            this.Player7Money.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player7Money.Name = "Player7Money";
+            this.Player7Money.Size = new System.Drawing.Size(118, 24);
+            this.Player7Money.TabIndex = 42;
+            this.Player7Money.Visible = false;
+            // 
+            // Player5Money
+            // 
+            this.Player5Money.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Player5Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player5Money.Location = new System.Drawing.Point(1278, 314);
+            this.Player5Money.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player5Money.Name = "Player5Money";
+            this.Player5Money.Size = new System.Drawing.Size(118, 24);
+            this.Player5Money.TabIndex = 43;
+            this.Player5Money.Visible = false;
+            // 
+            // Player2Money
+            // 
+            this.Player2Money.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Player2Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player2Money.Location = new System.Drawing.Point(1020, 40);
+            this.Player2Money.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player2Money.Name = "Player2Money";
+            this.Player2Money.Size = new System.Drawing.Size(118, 24);
+            this.Player2Money.TabIndex = 44;
+            this.Player2Money.Visible = false;
+            // 
+            // Player3Money
+            // 
+            this.Player3Money.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Player3Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player3Money.Location = new System.Drawing.Point(12, 314);
+            this.Player3Money.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player3Money.Name = "Player3Money";
+            this.Player3Money.Size = new System.Drawing.Size(118, 24);
+            this.Player3Money.TabIndex = 45;
+            this.Player3Money.Visible = false;
+            // 
+            // Player6Money
+            // 
+            this.Player6Money.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Player6Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player6Money.Location = new System.Drawing.Point(267, 40);
+            this.Player6Money.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player6Money.Name = "Player6Money";
+            this.Player6Money.Size = new System.Drawing.Size(118, 24);
+            this.Player6Money.TabIndex = 46;
+            this.Player6Money.Visible = false;
+            // 
+            // FoldButton
+            // 
+            this.FoldButton.Location = new System.Drawing.Point(548, 620);
+            this.FoldButton.Name = "FoldButton";
+            this.FoldButton.Size = new System.Drawing.Size(98, 31);
+            this.FoldButton.TabIndex = 47;
+            this.FoldButton.Text = "Fold";
+            this.FoldButton.UseVisualStyleBackColor = true;
+            this.FoldButton.Click += new System.EventHandler(this.FoldButton_Click);
+            // 
+            // RaiseButton
+            // 
+            this.RaiseButton.Location = new System.Drawing.Point(756, 620);
+            this.RaiseButton.Name = "RaiseButton";
+            this.RaiseButton.Size = new System.Drawing.Size(98, 31);
+            this.RaiseButton.TabIndex = 48;
+            this.RaiseButton.Text = "Raise";
+            this.RaiseButton.UseVisualStyleBackColor = true;
+            this.RaiseButton.Click += new System.EventHandler(this.RaiseButton_Click);
+            // 
+            // CallButton
+            // 
+            this.CallButton.Location = new System.Drawing.Point(652, 620);
+            this.CallButton.Name = "CallButton";
+            this.CallButton.Size = new System.Drawing.Size(98, 31);
+            this.CallButton.TabIndex = 49;
+            this.CallButton.Text = "Call";
+            this.CallButton.UseVisualStyleBackColor = true;
+            this.CallButton.Click += new System.EventHandler(this.CallButton_Click);
+            // 
+            // Player3Card2
+            // 
+            this.Player3Card2.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player3Card2.Image = global::projuct2.Properties.Resources.bakc_scard34___sideways;
+            this.Player3Card2.Location = new System.Drawing.Point(161, 288);
+            this.Player3Card2.Name = "Player3Card2";
+            this.Player3Card2.Size = new System.Drawing.Size(65, 56);
+            this.Player3Card2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player3Card2.TabIndex = 39;
+            this.Player3Card2.TabStop = false;
+            this.Player3Card2.Visible = false;
+            // 
+            // Player5Card1
+            // 
+            this.Player5Card1.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player5Card1.Image = global::projuct2.Properties.Resources.bakc_scard34___sideways;
+            this.Player5Card1.Location = new System.Drawing.Point(1180, 226);
+            this.Player5Card1.Name = "Player5Card1";
+            this.Player5Card1.Size = new System.Drawing.Size(65, 56);
+            this.Player5Card1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player5Card1.TabIndex = 38;
+            this.Player5Card1.TabStop = false;
+            this.Player5Card1.Visible = false;
+            // 
+            // Player5Card2
+            // 
+            this.Player5Card2.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player5Card2.Image = global::projuct2.Properties.Resources.bakc_scard34___sideways;
+            this.Player5Card2.Location = new System.Drawing.Point(1180, 288);
+            this.Player5Card2.Name = "Player5Card2";
+            this.Player5Card2.Size = new System.Drawing.Size(65, 56);
+            this.Player5Card2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player5Card2.TabIndex = 37;
+            this.Player5Card2.TabStop = false;
+            this.Player5Card2.Visible = false;
+            // 
+            // Player3Card1
+            // 
+            this.Player3Card1.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player3Card1.Image = global::projuct2.Properties.Resources.bakc_scard34___sideways;
+            this.Player3Card1.Location = new System.Drawing.Point(161, 226);
+            this.Player3Card1.Name = "Player3Card1";
+            this.Player3Card1.Size = new System.Drawing.Size(65, 56);
+            this.Player3Card1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player3Card1.TabIndex = 36;
+            this.Player3Card1.TabStop = false;
+            this.Player3Card1.Visible = false;
+            // 
+            // Player6Card1
+            // 
+            this.Player6Card1.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player6Card1.Image = global::projuct2.Properties.Resources.bakc_scard34;
+            this.Player6Card1.Location = new System.Drawing.Point(374, 107);
+            this.Player6Card1.Name = "Player6Card1";
+            this.Player6Card1.Size = new System.Drawing.Size(56, 65);
+            this.Player6Card1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player6Card1.TabIndex = 34;
+            this.Player6Card1.TabStop = false;
+            this.Player6Card1.Visible = false;
+            // 
+            // Player2Card1
+            // 
+            this.Player2Card1.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player2Card1.Image = global::projuct2.Properties.Resources.bakc_scard34;
+            this.Player2Card1.Location = new System.Drawing.Point(924, 107);
+            this.Player2Card1.Name = "Player2Card1";
+            this.Player2Card1.Size = new System.Drawing.Size(56, 65);
+            this.Player2Card1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player2Card1.TabIndex = 33;
+            this.Player2Card1.TabStop = false;
+            this.Player2Card1.Visible = false;
+            // 
+            // Player4Card1
+            // 
+            this.Player4Card1.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player4Card1.Image = global::projuct2.Properties.Resources.bakc_scard34;
+            this.Player4Card1.Location = new System.Drawing.Point(924, 396);
+            this.Player4Card1.Name = "Player4Card1";
+            this.Player4Card1.Size = new System.Drawing.Size(56, 65);
+            this.Player4Card1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player4Card1.TabIndex = 32;
+            this.Player4Card1.TabStop = false;
+            this.Player4Card1.Visible = false;
+            this.Player4Card1.Click += new System.EventHandler(this.pictureBox14_Click);
+            // 
+            // Player4Card2
+            // 
+            this.Player4Card2.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player4Card2.Image = global::projuct2.Properties.Resources.bakc_scard34;
+            this.Player4Card2.Location = new System.Drawing.Point(986, 396);
+            this.Player4Card2.Name = "Player4Card2";
+            this.Player4Card2.Size = new System.Drawing.Size(56, 65);
+            this.Player4Card2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player4Card2.TabIndex = 31;
+            this.Player4Card2.TabStop = false;
+            this.Player4Card2.Visible = false;
+            // 
+            // Player7Card2
+            // 
+            this.Player7Card2.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player7Card2.Image = global::projuct2.Properties.Resources.bakc_scard34;
+            this.Player7Card2.Location = new System.Drawing.Point(436, 396);
+            this.Player7Card2.Name = "Player7Card2";
+            this.Player7Card2.Size = new System.Drawing.Size(56, 65);
+            this.Player7Card2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player7Card2.TabIndex = 30;
+            this.Player7Card2.TabStop = false;
+            this.Player7Card2.Visible = false;
+            // 
+            // Player7Card1
+            // 
+            this.Player7Card1.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player7Card1.Image = global::projuct2.Properties.Resources.bakc_scard34;
+            this.Player7Card1.Location = new System.Drawing.Point(374, 396);
+            this.Player7Card1.Name = "Player7Card1";
+            this.Player7Card1.Size = new System.Drawing.Size(56, 65);
+            this.Player7Card1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player7Card1.TabIndex = 29;
+            this.Player7Card1.TabStop = false;
+            this.Player7Card1.Visible = false;
+            // 
+            // Player6Card2
+            // 
+            this.Player6Card2.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player6Card2.Image = global::projuct2.Properties.Resources.bakc_scard34;
+            this.Player6Card2.Location = new System.Drawing.Point(436, 107);
+            this.Player6Card2.Name = "Player6Card2";
+            this.Player6Card2.Size = new System.Drawing.Size(56, 65);
+            this.Player6Card2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player6Card2.TabIndex = 28;
+            this.Player6Card2.TabStop = false;
+            this.Player6Card2.Visible = false;
+            // 
+            // Player2Card2
+            // 
+            this.Player2Card2.BackColor = System.Drawing.Color.DarkGreen;
+            this.Player2Card2.Image = global::projuct2.Properties.Resources.bakc_scard34;
+            this.Player2Card2.Location = new System.Drawing.Point(986, 107);
+            this.Player2Card2.Name = "Player2Card2";
+            this.Player2Card2.Size = new System.Drawing.Size(56, 65);
+            this.Player2Card2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player2Card2.TabIndex = 27;
+            this.Player2Card2.TabStop = false;
+            this.Player2Card2.Visible = false;
+            // 
+            // TableCard5
+            // 
+            this.TableCard5.BackColor = System.Drawing.Color.DarkGreen;
+            this.TableCard5.Location = new System.Drawing.Point(811, 256);
+            this.TableCard5.Name = "TableCard5";
+            this.TableCard5.Size = new System.Drawing.Size(56, 65);
+            this.TableCard5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TableCard5.TabIndex = 26;
+            this.TableCard5.TabStop = false;
+            this.TableCard5.Visible = false;
+            // 
+            // TableCard4
+            // 
+            this.TableCard4.BackColor = System.Drawing.Color.DarkGreen;
+            this.TableCard4.Location = new System.Drawing.Point(744, 255);
+            this.TableCard4.Name = "TableCard4";
+            this.TableCard4.Size = new System.Drawing.Size(56, 65);
+            this.TableCard4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TableCard4.TabIndex = 25;
+            this.TableCard4.TabStop = false;
+            this.TableCard4.Visible = false;
+            // 
+            // TableCard3
+            // 
+            this.TableCard3.BackColor = System.Drawing.Color.DarkGreen;
+            this.TableCard3.Location = new System.Drawing.Point(675, 255);
+            this.TableCard3.Name = "TableCard3";
+            this.TableCard3.Size = new System.Drawing.Size(56, 65);
+            this.TableCard3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TableCard3.TabIndex = 24;
+            this.TableCard3.TabStop = false;
+            this.TableCard3.Visible = false;
+            // 
+            // TableCard2
+            // 
+            this.TableCard2.BackColor = System.Drawing.Color.DarkGreen;
+            this.TableCard2.Location = new System.Drawing.Point(607, 255);
+            this.TableCard2.Name = "TableCard2";
+            this.TableCard2.Size = new System.Drawing.Size(56, 65);
+            this.TableCard2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TableCard2.TabIndex = 23;
+            this.TableCard2.TabStop = false;
+            this.TableCard2.Visible = false;
+            // 
+            // MainCard1
+            // 
+            this.MainCard1.BackColor = System.Drawing.Color.DarkGreen;
+            this.MainCard1.Location = new System.Drawing.Point(642, 396);
+            this.MainCard1.Name = "MainCard1";
+            this.MainCard1.Size = new System.Drawing.Size(56, 65);
+            this.MainCard1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MainCard1.TabIndex = 16;
+            this.MainCard1.TabStop = false;
+            this.MainCard1.Visible = false;
+            // 
+            // MainCard2
+            // 
+            this.MainCard2.BackColor = System.Drawing.Color.DarkGreen;
+            this.MainCard2.Location = new System.Drawing.Point(704, 396);
+            this.MainCard2.Name = "MainCard2";
+            this.MainCard2.Size = new System.Drawing.Size(56, 65);
+            this.MainCard2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MainCard2.TabIndex = 15;
+            this.MainCard2.TabStop = false;
+            this.MainCard2.Visible = false;
+            // 
+            // TableCard1
+            // 
+            this.TableCard1.BackColor = System.Drawing.Color.DarkGreen;
+            this.TableCard1.Location = new System.Drawing.Point(540, 255);
+            this.TableCard1.Name = "TableCard1";
+            this.TableCard1.Size = new System.Drawing.Size(56, 65);
+            this.TableCard1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TableCard1.TabIndex = 13;
+            this.TableCard1.TabStop = false;
+            this.TableCard1.Visible = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(468, 255);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(56, 65);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 11;
+            this.pictureBox10.TabStop = false;
             // 
             // Player6Box
             // 
@@ -166,120 +614,38 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(468, 255);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(56, 65);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 11;
-            this.pictureBox10.TabStop = false;
-            // 
-            // poker_hands_button
-            // 
-            this.poker_hands_button.Location = new System.Drawing.Point(1298, 564);
-            this.poker_hands_button.Name = "poker_hands_button";
-            this.poker_hands_button.Size = new System.Drawing.Size(98, 31);
-            this.poker_hands_button.TabIndex = 12;
-            this.poker_hands_button.Text = "View hands";
-            this.poker_hands_button.UseVisualStyleBackColor = true;
-            this.poker_hands_button.Click += new System.EventHandler(this.poker_hands_button_Click);
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackColor = System.Drawing.Color.DarkGreen;
-            this.pictureBox11.Location = new System.Drawing.Point(540, 255);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(56, 65);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 13;
-            this.pictureBox11.TabStop = false;
-            // 
-            // start_game_button
-            // 
-            this.start_game_button.Location = new System.Drawing.Point(11, 564);
-            this.start_game_button.Name = "start_game_button";
-            this.start_game_button.Size = new System.Drawing.Size(98, 31);
-            this.start_game_button.TabIndex = 14;
-            this.start_game_button.Text = "Start game";
-            this.start_game_button.UseVisualStyleBackColor = true;
-            this.start_game_button.Click += new System.EventHandler(this.start_game_button_Click);
-            // 
-            // MainCard2
-            // 
-            this.MainCard2.BackColor = System.Drawing.Color.DarkGreen;
-            this.MainCard2.Location = new System.Drawing.Point(704, 396);
-            this.MainCard2.Name = "MainCard2";
-            this.MainCard2.Size = new System.Drawing.Size(56, 65);
-            this.MainCard2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.MainCard2.TabIndex = 15;
-            this.MainCard2.TabStop = false;
-            // 
-            // MainCard1
-            // 
-            this.MainCard1.BackColor = System.Drawing.Color.DarkGreen;
-            this.MainCard1.Location = new System.Drawing.Point(642, 396);
-            this.MainCard1.Name = "MainCard1";
-            this.MainCard1.Size = new System.Drawing.Size(56, 65);
-            this.MainCard1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.MainCard1.TabIndex = 16;
-            this.MainCard1.TabStop = false;
-            // 
-            // Player4Name
-            // 
-            this.Player4Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player4Name.Location = new System.Drawing.Point(953, 513);
-            this.Player4Name.Name = "Player4Name";
-            this.Player4Name.Size = new System.Drawing.Size(49, 23);
-            this.Player4Name.TabIndex = 17;
-            // 
-            // Player2Name
-            // 
-            this.Player2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player2Name.Location = new System.Drawing.Point(953, 40);
-            this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(49, 23);
-            this.Player2Name.TabIndex = 18;
-            // 
-            // Player5Name
-            // 
-            this.Player5Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player5Name.Location = new System.Drawing.Point(1312, 271);
-            this.Player5Name.Name = "Player5Name";
-            this.Player5Name.Size = new System.Drawing.Size(49, 23);
-            this.Player5Name.TabIndex = 19;
-            // 
-            // Player6Name
-            // 
-            this.Player6Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player6Name.Location = new System.Drawing.Point(406, 40);
-            this.Player6Name.Name = "Player6Name";
-            this.Player6Name.Size = new System.Drawing.Size(49, 23);
-            this.Player6Name.TabIndex = 20;
-            // 
-            // Player3Name
-            // 
-            this.Player3Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player3Name.Location = new System.Drawing.Point(48, 271);
-            this.Player3Name.Name = "Player3Name";
-            this.Player3Name.Size = new System.Drawing.Size(49, 23);
-            this.Player3Name.TabIndex = 21;
-            // 
-            // Player7Name
-            // 
-            this.Player7Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player7Name.Location = new System.Drawing.Point(406, 513);
-            this.Player7Name.Name = "Player7Name";
-            this.Player7Name.Size = new System.Drawing.Size(49, 23);
-            this.Player7Name.TabIndex = 22;
-            // 
             // Game_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1408, 663);
+            this.Controls.Add(this.CallButton);
+            this.Controls.Add(this.RaiseButton);
+            this.Controls.Add(this.FoldButton);
+            this.Controls.Add(this.Player6Money);
+            this.Controls.Add(this.Player3Money);
+            this.Controls.Add(this.Player2Money);
+            this.Controls.Add(this.Player5Money);
+            this.Controls.Add(this.Player7Money);
+            this.Controls.Add(this.Player4Money);
+            this.Controls.Add(this.Player1Money);
+            this.Controls.Add(this.Player3Card2);
+            this.Controls.Add(this.Player5Card1);
+            this.Controls.Add(this.Player5Card2);
+            this.Controls.Add(this.Player3Card1);
+            this.Controls.Add(this.Player6Card1);
+            this.Controls.Add(this.Player2Card1);
+            this.Controls.Add(this.Player4Card1);
+            this.Controls.Add(this.Player4Card2);
+            this.Controls.Add(this.Player7Card2);
+            this.Controls.Add(this.Player7Card1);
+            this.Controls.Add(this.Player6Card2);
+            this.Controls.Add(this.Player2Card2);
+            this.Controls.Add(this.TableCard5);
+            this.Controls.Add(this.TableCard4);
+            this.Controls.Add(this.TableCard3);
+            this.Controls.Add(this.TableCard2);
             this.Controls.Add(this.Player7Name);
             this.Controls.Add(this.Player3Name);
             this.Controls.Add(this.Player6Name);
@@ -289,7 +655,7 @@
             this.Controls.Add(this.MainCard1);
             this.Controls.Add(this.MainCard2);
             this.Controls.Add(this.start_game_button);
-            this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.TableCard1);
             this.Controls.Add(this.poker_hands_button);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.Your_Name_label);
@@ -304,6 +670,26 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Game_Form";
             this.Text = "Game_Form";
+            ((System.ComponentModel.ISupportInitialize)(this.Player3Card2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player5Card1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player5Card2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player3Card1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player6Card1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player2Card1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player4Card1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player4Card2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player7Card2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player7Card1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player6Card2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player2Card2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableCard5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableCard4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableCard3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableCard2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainCard1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainCard2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableCard1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player6Box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2Box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player5Box)).EndInit();
@@ -313,10 +699,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player1Box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MainCard2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MainCard1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,7 +717,7 @@
         private System.Windows.Forms.Label Your_Name_label;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Button poker_hands_button;
-        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox TableCard1;
         private System.Windows.Forms.Button start_game_button;
         private System.Windows.Forms.PictureBox MainCard2;
         private System.Windows.Forms.PictureBox MainCard1;
@@ -345,5 +727,31 @@
         private System.Windows.Forms.Label Player6Name;
         private System.Windows.Forms.Label Player3Name;
         private System.Windows.Forms.Label Player7Name;
+        private System.Windows.Forms.PictureBox TableCard2;
+        private System.Windows.Forms.PictureBox TableCard3;
+        private System.Windows.Forms.PictureBox TableCard4;
+        private System.Windows.Forms.PictureBox TableCard5;
+        private System.Windows.Forms.PictureBox Player2Card2;
+        private System.Windows.Forms.PictureBox Player6Card2;
+        private System.Windows.Forms.PictureBox Player7Card1;
+        private System.Windows.Forms.PictureBox Player7Card2;
+        private System.Windows.Forms.PictureBox Player4Card2;
+        private System.Windows.Forms.PictureBox Player4Card1;
+        private System.Windows.Forms.PictureBox Player2Card1;
+        private System.Windows.Forms.PictureBox Player6Card1;
+        private System.Windows.Forms.PictureBox Player3Card1;
+        private System.Windows.Forms.PictureBox Player5Card2;
+        private System.Windows.Forms.PictureBox Player5Card1;
+        private System.Windows.Forms.PictureBox Player3Card2;
+        private System.Windows.Forms.Label Player1Money;
+        private System.Windows.Forms.Label Player4Money;
+        private System.Windows.Forms.Label Player7Money;
+        private System.Windows.Forms.Label Player5Money;
+        private System.Windows.Forms.Label Player2Money;
+        private System.Windows.Forms.Label Player3Money;
+        private System.Windows.Forms.Label Player6Money;
+        private System.Windows.Forms.Button FoldButton;
+        private System.Windows.Forms.Button RaiseButton;
+        private System.Windows.Forms.Button CallButton;
     }
 }
