@@ -131,6 +131,34 @@ namespace projuct2
                         {
                             Game.Invoke((Action)delegate { Game.JoinGame(incommingData); });
                         }
+                        else if (incommingData.StartsWith("call"))
+                        {
+                            Game.Invoke((Action)delegate { Game.CallBet(incommingData); });
+                        }
+                        else if (incommingData.StartsWith("fold"))
+                        {
+                            Game.Invoke((Action)delegate { Game.FoldBet(incommingData); });
+                        }
+                        else if (incommingData.StartsWith("raise"))
+                        {
+                            Game.Invoke((Action)delegate { Game.RaiseBet(incommingData); });
+                        }
+                        else if (incommingData.StartsWith("turn"))
+                        {
+                            Game.Invoke((Action)delegate { Game.RunTurn(); });
+                        }
+                        else if (incommingData.StartsWith("round"))
+                        {
+                            Game.Invoke((Action)delegate { Game.RoundEnd(incommingData); });
+                        }
+                        else if (incommingData.StartsWith("timeout"))
+                        {
+                            login.Invoke((Action)delegate { login.Timeout(incommingData); });
+                        }
+                        else if (incommingData.StartsWith("switch"))
+                        {
+                            Game.Invoke((Action)delegate { Game.Switch(incommingData); });
+                        }
                     }
                 }
 

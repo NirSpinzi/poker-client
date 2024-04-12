@@ -37,6 +37,7 @@
             this.email_box2 = new System.Windows.Forms.TextBox();
             this.registar2_button = new System.Windows.Forms.Button();
             this.back_button = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -127,7 +128,6 @@
             // 
             this.back_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.back_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            //this.back_button.Image = global::projuct2.Properties.Resources.Back_arrow;
             this.back_button.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.back_button.Location = new System.Drawing.Point(12, 12);
             this.back_button.Name = "back_button";
@@ -136,11 +136,24 @@
             this.back_button.UseVisualStyleBackColor = true;
             this.back_button.Click += new System.EventHandler(this.back_button_Click);
             // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label4.Location = new System.Drawing.Point(330, 494);
+            this.label4.MaximumSize = new System.Drawing.Size(500, 500);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(335, 87);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Username and password must contain at least 1 uppercase letter, at least 1 lowerc" +
+    "ase letter and at least 1 digit.";
+            // 
             // Regist_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1035, 626);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.back_button);
             this.Controls.Add(this.registar2_button);
             this.Controls.Add(this.email_box2);
@@ -168,5 +181,6 @@
         private System.Windows.Forms.TextBox email_box2;
         private System.Windows.Forms.Button registar2_button;
         private System.Windows.Forms.Button back_button;
+        private System.Windows.Forms.Label label4;
     }
 }

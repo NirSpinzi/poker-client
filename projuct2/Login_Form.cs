@@ -11,12 +11,9 @@ namespace projuct2
     {
         // Fields
         int captchaid;
-        int count=0;
-        int cooldownCount = 0;
         public Login_Form()
         {
             InitializeComponent();
-            cooldown.Stop();
             if (Tikshoret._isTcpClientConnected == false)
             {
                 Tikshoret.connect();
@@ -59,6 +56,17 @@ namespace projuct2
         {
 
         }
+        public void Timeout(string info)
+        {
+            string[] parts = info.Split(':');
+            Login_button.Enabled = false;
+            cooldownBox.Text = parts[1];
+            if (parts[1].Equals("0"))
+            {
+                cooldownBox.Text = "";
+                Login_button.Enabled = true;
+            }
+        }
         public void SetCaptchaImage(string info)
         {
             String[] parts = info.Split(':');
@@ -79,29 +87,11 @@ namespace projuct2
             else if (parts[1].Equals("captchaIncorrect"))
             {
                 MessageBox.Show("Captcha answer is incorrect");
-                count++;
-                if (count == 3)
-                {
-                    Login_button.Enabled = false;
-                    cooldownCount = 30;
-                    cooldownBox.Text = cooldownCount.ToString();
-                    cooldown.Start();
-                    count = 0;
-                }
             }
             else
             {
                 // If the login is not successful, show an error message.
                 MessageBox.Show("The username or password is incorrect");
-                count++;
-                if (count == 3)
-                {
-                    Login_button.Enabled = false;
-                    cooldownCount = 30;
-                    cooldownBox.Text = cooldownCount.ToString();
-                    cooldown.Start();
-                    count = 0;
-                }
             }
         }
         private void email_box_TextChanged(object sender, EventArgs e)
@@ -119,17 +109,6 @@ namespace projuct2
         private void CaptchaImageBox_Click(object sender, EventArgs e)
         {
 
-        }
-        private void cooldown_Tick(object sender, EventArgs e)
-        {
-            cooldownCount--;
-            cooldownBox.Text = cooldownCount.ToString();
-            if (cooldownCount == 0) 
-            { 
-                cooldown.Stop();
-                Login_button.Enabled = true;
-                cooldownBox.Text = "";
-            }
         }
         private void Capthca_checkbox_CheckedChanged(object sender, EventArgs e)
         {

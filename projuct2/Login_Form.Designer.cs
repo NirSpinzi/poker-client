@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.Login_label = new System.Windows.Forms.Label();
             this.label_username = new System.Windows.Forms.Label();
             this.label_password = new System.Windows.Forms.Label();
@@ -42,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.CaptchaImageBox = new System.Windows.Forms.PictureBox();
-            this.cooldown = new System.Windows.Forms.Timer(this.components);
             this.cooldownBox = new System.Windows.Forms.Label();
             this.ForgotPasswordButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -186,18 +184,12 @@
             this.CaptchaImageBox.TabStop = false;
             this.CaptchaImageBox.Click += new System.EventHandler(this.CaptchaImageBox_Click);
             // 
-            // cooldown
-            // 
-            this.cooldown.Enabled = true;
-            this.cooldown.Interval = 1000;
-            this.cooldown.Tick += new System.EventHandler(this.cooldown_Tick);
-            // 
             // cooldownBox
             // 
             this.cooldownBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.cooldownBox.Location = new System.Drawing.Point(551, 255);
             this.cooldownBox.Name = "cooldownBox";
-            this.cooldownBox.Size = new System.Drawing.Size(29, 30);
+            this.cooldownBox.Size = new System.Drawing.Size(117, 30);
             this.cooldownBox.TabIndex = 22;
             // 
             // ForgotPasswordButton
@@ -254,7 +246,6 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.TextBox CaptchaTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Timer cooldown;
         private System.Windows.Forms.Label cooldownBox;
         private System.Windows.Forms.Button ForgotPasswordButton;
     }

@@ -76,7 +76,18 @@
             this.Player7Box = new System.Windows.Forms.PictureBox();
             this.Player1Box = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PokerTable = new System.Windows.Forms.PictureBox();
+            this.TableBetLabel = new System.Windows.Forms.Label();
+            this.Player1Bet = new System.Windows.Forms.Label();
+            this.Player2Bet = new System.Windows.Forms.Label();
+            this.Player4Bet = new System.Windows.Forms.Label();
+            this.Player6Bet = new System.Windows.Forms.Label();
+            this.Player5Bet = new System.Windows.Forms.Label();
+            this.Player7Bet = new System.Windows.Forms.Label();
+            this.Player3Bet = new System.Windows.Forms.Label();
+            this.RaiseInsertBox = new System.Windows.Forms.TextBox();
+            this.ConfirmRaiseButton = new System.Windows.Forms.Button();
+            this.LeaveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Player3Card2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player5Card1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player5Card2)).BeginInit();
@@ -105,7 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player7Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player1Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PokerTable)).BeginInit();
             this.SuspendLayout();
             // 
             // Your_Name_label
@@ -135,6 +146,7 @@
             this.start_game_button.TabIndex = 14;
             this.start_game_button.Text = "Start game";
             this.start_game_button.UseVisualStyleBackColor = true;
+            this.start_game_button.Visible = false;
             this.start_game_button.Click += new System.EventHandler(this.start_game_button_Click);
             // 
             // Player4Name
@@ -219,7 +231,7 @@
             // 
             // Player5Money
             // 
-            this.Player5Money.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Player5Money.BackColor = System.Drawing.Color.Transparent;
             this.Player5Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.Player5Money.Location = new System.Drawing.Point(1278, 314);
             this.Player5Money.MaximumSize = new System.Drawing.Size(500, 500);
@@ -241,7 +253,7 @@
             // 
             // Player3Money
             // 
-            this.Player3Money.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Player3Money.BackColor = System.Drawing.Color.Transparent;
             this.Player3Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.Player3Money.Location = new System.Drawing.Point(12, 314);
             this.Player3Money.MaximumSize = new System.Drawing.Size(500, 500);
@@ -263,6 +275,7 @@
             // 
             // FoldButton
             // 
+            this.FoldButton.Enabled = false;
             this.FoldButton.Location = new System.Drawing.Point(548, 620);
             this.FoldButton.Name = "FoldButton";
             this.FoldButton.Size = new System.Drawing.Size(98, 31);
@@ -273,6 +286,7 @@
             // 
             // RaiseButton
             // 
+            this.RaiseButton.Enabled = false;
             this.RaiseButton.Location = new System.Drawing.Point(756, 620);
             this.RaiseButton.Name = "RaiseButton";
             this.RaiseButton.Size = new System.Drawing.Size(98, 31);
@@ -283,6 +297,7 @@
             // 
             // CallButton
             // 
+            this.CallButton.Enabled = false;
             this.CallButton.Location = new System.Drawing.Point(652, 620);
             this.CallButton.Name = "CallButton";
             this.CallButton.Size = new System.Drawing.Size(98, 31);
@@ -512,6 +527,7 @@
             this.TableCard1.TabIndex = 13;
             this.TableCard1.TabStop = false;
             this.TableCard1.Visible = false;
+            this.TableCard1.Click += new System.EventHandler(this.TableCard1_Click);
             // 
             // pictureBox10
             // 
@@ -604,15 +620,127 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // PokerTable
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1384, 546);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.PokerTable.Image = ((System.Drawing.Image)(resources.GetObject("PokerTable.Image")));
+            this.PokerTable.Location = new System.Drawing.Point(12, 12);
+            this.PokerTable.Name = "PokerTable";
+            this.PokerTable.Size = new System.Drawing.Size(1384, 546);
+            this.PokerTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PokerTable.TabIndex = 0;
+            this.PokerTable.TabStop = false;
+            // 
+            // TableBetLabel
+            // 
+            this.TableBetLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TableBetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.TableBetLabel.Location = new System.Drawing.Point(884, 256);
+            this.TableBetLabel.MaximumSize = new System.Drawing.Size(500, 500);
+            this.TableBetLabel.Name = "TableBetLabel";
+            this.TableBetLabel.Size = new System.Drawing.Size(60, 64);
+            this.TableBetLabel.TabIndex = 50;
+            this.TableBetLabel.Text = "Bet 5K to enter";
+            this.TableBetLabel.Visible = false;
+            // 
+            // Player1Bet
+            // 
+            this.Player1Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player1Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player1Bet.Location = new System.Drawing.Point(669, 329);
+            this.Player1Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player1Bet.Name = "Player1Bet";
+            this.Player1Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player1Bet.TabIndex = 51;
+            // 
+            // Player2Bet
+            // 
+            this.Player2Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player2Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player2Bet.Location = new System.Drawing.Point(954, 175);
+            this.Player2Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player2Bet.Name = "Player2Bet";
+            this.Player2Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player2Bet.TabIndex = 52;
+            // 
+            // Player4Bet
+            // 
+            this.Player4Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player4Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player4Bet.Location = new System.Drawing.Point(954, 329);
+            this.Player4Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player4Bet.Name = "Player4Bet";
+            this.Player4Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player4Bet.TabIndex = 53;
+            // 
+            // Player6Bet
+            // 
+            this.Player6Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player6Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player6Bet.Location = new System.Drawing.Point(399, 175);
+            this.Player6Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player6Bet.Name = "Player6Bet";
+            this.Player6Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player6Bet.TabIndex = 54;
+            // 
+            // Player5Bet
+            // 
+            this.Player5Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player5Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player5Bet.Location = new System.Drawing.Point(1114, 255);
+            this.Player5Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player5Bet.Name = "Player5Bet";
+            this.Player5Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player5Bet.TabIndex = 55;
+            // 
+            // Player7Bet
+            // 
+            this.Player7Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player7Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player7Bet.Location = new System.Drawing.Point(399, 329);
+            this.Player7Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player7Bet.Name = "Player7Bet";
+            this.Player7Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player7Bet.TabIndex = 56;
+            this.Player7Bet.Visible = false;
+            // 
+            // Player3Bet
+            // 
+            this.Player3Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player3Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player3Bet.Location = new System.Drawing.Point(232, 253);
+            this.Player3Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player3Bet.Name = "Player3Bet";
+            this.Player3Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player3Bet.TabIndex = 57;
+            // 
+            // RaiseInsertBox
+            // 
+            this.RaiseInsertBox.Location = new System.Drawing.Point(860, 626);
+            this.RaiseInsertBox.Name = "RaiseInsertBox";
+            this.RaiseInsertBox.Size = new System.Drawing.Size(100, 20);
+            this.RaiseInsertBox.TabIndex = 58;
+            this.RaiseInsertBox.Visible = false;
+            // 
+            // ConfirmRaiseButton
+            // 
+            this.ConfirmRaiseButton.Location = new System.Drawing.Point(966, 620);
+            this.ConfirmRaiseButton.Name = "ConfirmRaiseButton";
+            this.ConfirmRaiseButton.Size = new System.Drawing.Size(98, 31);
+            this.ConfirmRaiseButton.TabIndex = 59;
+            this.ConfirmRaiseButton.Text = "Confirm Raise";
+            this.ConfirmRaiseButton.UseVisualStyleBackColor = true;
+            this.ConfirmRaiseButton.Visible = false;
+            this.ConfirmRaiseButton.Click += new System.EventHandler(this.ConfirmRaiseButton_Click);
+            // 
+            // LeaveButton
+            // 
+            this.LeaveButton.Location = new System.Drawing.Point(11, 23);
+            this.LeaveButton.Name = "LeaveButton";
+            this.LeaveButton.Size = new System.Drawing.Size(98, 31);
+            this.LeaveButton.TabIndex = 60;
+            this.LeaveButton.Text = "Leave Match";
+            this.LeaveButton.UseVisualStyleBackColor = true;
+            this.LeaveButton.Click += new System.EventHandler(this.LeaveButton_Click);
             // 
             // Game_Form
             // 
@@ -620,6 +748,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1408, 663);
+            this.Controls.Add(this.LeaveButton);
+            this.Controls.Add(this.ConfirmRaiseButton);
+            this.Controls.Add(this.RaiseInsertBox);
+            this.Controls.Add(this.Player3Bet);
+            this.Controls.Add(this.Player7Bet);
+            this.Controls.Add(this.Player5Bet);
+            this.Controls.Add(this.Player6Bet);
+            this.Controls.Add(this.Player4Bet);
+            this.Controls.Add(this.Player2Bet);
+            this.Controls.Add(this.Player1Bet);
+            this.Controls.Add(this.TableBetLabel);
             this.Controls.Add(this.CallButton);
             this.Controls.Add(this.RaiseButton);
             this.Controls.Add(this.FoldButton);
@@ -667,9 +806,10 @@
             this.Controls.Add(this.Player7Box);
             this.Controls.Add(this.Player1Box);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.PokerTable);
             this.Name = "Game_Form";
             this.Text = "Game_Form";
+            this.Load += new System.EventHandler(this.Game_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Player3Card2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player5Card1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player5Card2)).EndInit();
@@ -698,14 +838,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player7Box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player1Box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PokerTable)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PokerTable;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox Player1Box;
         private System.Windows.Forms.PictureBox Player7Box;
@@ -753,5 +894,16 @@
         private System.Windows.Forms.Button FoldButton;
         private System.Windows.Forms.Button RaiseButton;
         private System.Windows.Forms.Button CallButton;
+        private System.Windows.Forms.Label TableBetLabel;
+        private System.Windows.Forms.Label Player1Bet;
+        private System.Windows.Forms.Label Player2Bet;
+        private System.Windows.Forms.Label Player4Bet;
+        private System.Windows.Forms.Label Player6Bet;
+        private System.Windows.Forms.Label Player5Bet;
+        private System.Windows.Forms.Label Player7Bet;
+        private System.Windows.Forms.Label Player3Bet;
+        private System.Windows.Forms.TextBox RaiseInsertBox;
+        private System.Windows.Forms.Button ConfirmRaiseButton;
+        private System.Windows.Forms.Button LeaveButton;
     }
 }
