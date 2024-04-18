@@ -88,6 +88,10 @@
             this.RaiseInsertBox = new System.Windows.Forms.TextBox();
             this.ConfirmRaiseButton = new System.Windows.Forms.Button();
             this.LeaveButton = new System.Windows.Forms.Button();
+            this.MinRaiseLabel = new System.Windows.Forms.Label();
+            this.TimeForTurnLabel = new System.Windows.Forms.Label();
+            this.WinnerAnnouncementLabel = new System.Windows.Forms.Label();
+            this.PlayAgainButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Player3Card2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player5Card1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player5Card2)).BeginInit();
@@ -740,7 +744,55 @@
             this.LeaveButton.TabIndex = 60;
             this.LeaveButton.Text = "Leave Match";
             this.LeaveButton.UseVisualStyleBackColor = true;
+            this.LeaveButton.Visible = false;
             this.LeaveButton.Click += new System.EventHandler(this.LeaveButton_Click);
+            // 
+            // MinRaiseLabel
+            // 
+            this.MinRaiseLabel.BackColor = System.Drawing.Color.Transparent;
+            this.MinRaiseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.MinRaiseLabel.Location = new System.Drawing.Point(860, 604);
+            this.MinRaiseLabel.MaximumSize = new System.Drawing.Size(500, 500);
+            this.MinRaiseLabel.Name = "MinRaiseLabel";
+            this.MinRaiseLabel.Size = new System.Drawing.Size(100, 18);
+            this.MinRaiseLabel.TabIndex = 61;
+            this.MinRaiseLabel.Text = "Min raise is 5K";
+            this.MinRaiseLabel.Visible = false;
+            // 
+            // TimeForTurnLabel
+            // 
+            this.TimeForTurnLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TimeForTurnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.TimeForTurnLabel.Location = new System.Drawing.Point(496, 619);
+            this.TimeForTurnLabel.MaximumSize = new System.Drawing.Size(500, 500);
+            this.TimeForTurnLabel.Name = "TimeForTurnLabel";
+            this.TimeForTurnLabel.Size = new System.Drawing.Size(46, 32);
+            this.TimeForTurnLabel.TabIndex = 62;
+            this.TimeForTurnLabel.Text = "30";
+            this.TimeForTurnLabel.Visible = false;
+            // 
+            // WinnerAnnouncementLabel
+            // 
+            this.WinnerAnnouncementLabel.BackColor = System.Drawing.Color.Transparent;
+            this.WinnerAnnouncementLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.WinnerAnnouncementLabel.Location = new System.Drawing.Point(548, 175);
+            this.WinnerAnnouncementLabel.MaximumSize = new System.Drawing.Size(500, 500);
+            this.WinnerAnnouncementLabel.Name = "WinnerAnnouncementLabel";
+            this.WinnerAnnouncementLabel.Size = new System.Drawing.Size(306, 64);
+            this.WinnerAnnouncementLabel.TabIndex = 63;
+            this.WinnerAnnouncementLabel.Text = "The winner is ";
+            this.WinnerAnnouncementLabel.Visible = false;
+            // 
+            // PlayAgainButton
+            // 
+            this.PlayAgainButton.Location = new System.Drawing.Point(11, 601);
+            this.PlayAgainButton.Name = "PlayAgainButton";
+            this.PlayAgainButton.Size = new System.Drawing.Size(98, 31);
+            this.PlayAgainButton.TabIndex = 64;
+            this.PlayAgainButton.Text = "Play again";
+            this.PlayAgainButton.UseVisualStyleBackColor = true;
+            this.PlayAgainButton.Visible = false;
+            this.PlayAgainButton.Click += new System.EventHandler(this.PlayAgainButton_Click);
             // 
             // Game_Form
             // 
@@ -748,6 +800,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1408, 663);
+            this.Controls.Add(this.PlayAgainButton);
+            this.Controls.Add(this.WinnerAnnouncementLabel);
+            this.Controls.Add(this.TimeForTurnLabel);
+            this.Controls.Add(this.MinRaiseLabel);
             this.Controls.Add(this.LeaveButton);
             this.Controls.Add(this.ConfirmRaiseButton);
             this.Controls.Add(this.RaiseInsertBox);
@@ -905,5 +961,9 @@
         private System.Windows.Forms.TextBox RaiseInsertBox;
         private System.Windows.Forms.Button ConfirmRaiseButton;
         private System.Windows.Forms.Button LeaveButton;
+        private System.Windows.Forms.Label MinRaiseLabel;
+        private System.Windows.Forms.Label TimeForTurnLabel;
+        private System.Windows.Forms.Label WinnerAnnouncementLabel;
+        private System.Windows.Forms.Button PlayAgainButton;
     }
 }

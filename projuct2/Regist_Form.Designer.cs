@@ -140,13 +140,14 @@
             // 
             this.label4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label4.Location = new System.Drawing.Point(330, 494);
+            this.label4.Location = new System.Drawing.Point(241, 478);
             this.label4.MaximumSize = new System.Drawing.Size(500, 500);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(335, 87);
+            this.label4.Size = new System.Drawing.Size(424, 103);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Username and password must contain at least 1 uppercase letter, at least 1 lowerc" +
-    "ase letter and at least 1 digit.";
+            this.label4.Text = "Password must contain at least 1 uppercase letter, at least 1 lowercase letter an" +
+    "d at least 1 digit. Username must be at least 3 letters long and nither must con" +
+    "tain parenrthesis or equals sign.";
             // 
             // Regist_Form
             // 

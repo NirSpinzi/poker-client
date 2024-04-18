@@ -28,6 +28,7 @@ namespace projuct2
             Player5Bet.Parent = PokerTable;
             Player6Bet.Parent = PokerTable;
             Player7Bet.Parent = PokerTable;
+            WinnerAnnouncementLabel.Parent = PokerTable;
             Tikshoret.BeginRead();
             Tikshoret.SendMessage("isHost");
             username = parts[0];
@@ -177,11 +178,13 @@ namespace projuct2
             {
                 RaiseInsertBox.Visible = false;
                 ConfirmRaiseButton.Visible = false;
+                MinRaiseLabel.Visible = false;
             }
             else
             {
                 RaiseInsertBox.Visible = true;
                 ConfirmRaiseButton.Visible = true;
+                MinRaiseLabel.Visible = true;
             }
         }
         private void CallButton_Click(object sender, EventArgs e)
@@ -192,6 +195,7 @@ namespace projuct2
             RaiseButton.Enabled=false;
             ConfirmRaiseButton.Visible = false;
             RaiseInsertBox.Visible = false; ;
+            TimeForTurnLabel.Visible = false;
         }
         private void FoldButton_Click(object sender, EventArgs e)
         {
@@ -201,6 +205,7 @@ namespace projuct2
             RaiseButton.Enabled = false;
             ConfirmRaiseButton.Visible = false;
             RaiseInsertBox.Visible = false; ;
+            TimeForTurnLabel.Visible = false;
         }
         public void CallBet(string info)
         {
@@ -251,6 +256,12 @@ namespace projuct2
         public void FoldBet(string info)
         {
             string[] parts = info.Split(':');
+            CallButton.Enabled = false;
+            FoldButton.Enabled = false;
+            RaiseButton.Enabled = false;
+            ConfirmRaiseButton.Visible = false;
+            RaiseInsertBox.Visible = false;
+            TimeForTurnLabel.Visible = false;
             if (parts[2].Equals(username))
             {
                 Player1Bet.Text += "Folded";
@@ -294,6 +305,8 @@ namespace projuct2
                 MessageBox.Show("Please insert a Number");
             else if (parts[1].StartsWith("not_e"))
                 MessageBox.Show("You dont have enough money to place this bet");
+            else if (parts[1].StartsWith("min"))
+                MessageBox.Show("Min raise is 5000");
             else
             {
                 ConfirmRaiseButton.Visible = false;
@@ -301,6 +314,7 @@ namespace projuct2
                 CallButton.Enabled = false;
                 FoldButton.Enabled = false;
                 RaiseButton.Enabled = false;
+                TimeForTurnLabel.Visible = false;
                 TableBetLabel.Text = "Current Bet:" + parts[1] + "$";
                 if (parts[3].Equals(username))
                 {
@@ -351,6 +365,7 @@ namespace projuct2
             RaiseButton.Enabled = true;
             CallButton.Enabled = true;
             FoldButton.Enabled = true;
+            TimeForTurnLabel.Visible = true;
         }
         public void RoundEnd(string info)
         {
@@ -379,17 +394,19 @@ namespace projuct2
         {
 
         }
-
+        public void GameTimerTick(string info)
+        {
+            string[] parts = info.Split(':');
+            TimeForTurnLabel.Text = parts[1];
+        }
         private void TableCard1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void ConfirmRaiseButton_Click(object sender, EventArgs e)
         {
             Tikshoret.SendMessage("raise:"+ RaiseInsertBox.Text);
         }
-
         private void LeaveButton_Click(object sender, EventArgs e)
         {
             Tikshoret.SendMessage("leave:");
@@ -513,6 +530,101 @@ namespace projuct2
                 Player7Card1.Visible = false;
                 Player7Card2.Visible = false;
             }
+        }
+        public void WinnerAnnouncement(string info)
+        {
+            string[] parts = info.Split(':');
+            WinnerAnnouncementLabel.Text = "The Winner is " + parts[2];
+            WinnerAnnouncementLabel.Visible = true;
+            PlayAgainButton.Visible = true;
+        }
+        public void UpdateWinnerMoney(string info)
+        {
+            string[] parts = info.Split(':');
+            if (parts[2].Equals(username))
+            {
+                Player1Money.Text = parts[3] + "$";
+            }
+            else
+            {
+                if (parts[1].Equals("0"))
+                {
+                    Tikshoret.SendMessage("table:update_money:");
+                }
+                if (parts[1].Equals("1"))
+                {
+                    Player2Money.Text = parts[3] + "$";
+                }
+                if (parts[1].Equals("2"))
+                {
+                    Player3Money.Text = parts[3] + "$";
+                }
+                if (parts[1].Equals("3"))
+                {
+                    Player4Money.Text = parts[3] + "$";
+                }
+                if (parts[1].Equals("4"))
+                {
+                    Player5Money.Text = parts[3] + "$";
+                }
+                if (parts[1].Equals("5"))
+                {
+                    Player6Money.Text = parts[3] + "$";
+                }
+                if (parts[1].Equals("6"))
+                {
+                    Player7Money.Text = parts[3] + "$";
+                }
+            }
+        }
+        public void RevealCards(string info)
+        {
+            string[] parts = info.Split(':');
+            if (parts[6].Equals(username))
+            {
+                return;
+            }
+            else
+            {
+                if (parts[1].Equals("0"))
+                {
+                    Tikshoret.SendMessage("table:reveal:");
+                }
+                if (parts[1].Equals("1"))
+                {
+                    Player2Card1.Image = Image.FromFile(PicturePath + "card." + parts[2] + "." + parts[3] + ".jpg");
+                    Player2Card2.Image = Image.FromFile(PicturePath + "card." + parts[4] + "." + parts[5] + ".jpg");
+                }
+                if (parts[1].Equals("2"))
+                {
+                    Player3Card1.Image = Image.FromFile(PicturePath + "card." + parts[2] + "." + parts[3] + ".jpg");
+                    Player3Card2.Image = Image.FromFile(PicturePath + "card." + parts[4] + "." + parts[5] + ".jpg");
+                }
+                if (parts[1].Equals("3"))
+                {
+                    Player4Card1.Image = Image.FromFile(PicturePath + "card." + parts[2] + "." + parts[3] + ".jpg");
+                    Player4Card2.Image = Image.FromFile(PicturePath + "card." + parts[4] + "." + parts[5] + ".jpg");
+                }
+                if (parts[1].Equals("4"))
+                {
+                    Player5Card1.Image = Image.FromFile(PicturePath + "card." + parts[2] + "." + parts[3] + ".jpg");
+                    Player5Card2.Image = Image.FromFile(PicturePath + "card." + parts[4] + "." + parts[5] + ".jpg");
+                }
+                if (parts[1].Equals("5"))
+                {
+                    Player6Card1.Image = Image.FromFile(PicturePath + "card." + parts[2] + "." + parts[3] + ".jpg");
+                    Player6Card2.Image = Image.FromFile(PicturePath + "card." + parts[4] + "." + parts[5] + ".jpg");
+                }
+                if (parts[1].Equals("6"))
+                {
+                    Player7Card1.Image = Image.FromFile(PicturePath + "card." + parts[2] + "." + parts[3] + ".jpg");
+                    Player7Card2.Image = Image.FromFile(PicturePath + "card." + parts[4] + "." + parts[5] + ".jpg");
+                }
+            }
+        }
+        private void PlayAgainButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
