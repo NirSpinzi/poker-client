@@ -112,6 +112,10 @@ namespace projuct2
                             {
                                 Game.Invoke((Action)delegate { Game.startGame(incommingData); });
                             }
+                            else if (parts[1].Equals("play_again"))
+                            {
+                                Game.Invoke((Action)delegate { Game.PlayAgain(incommingData); });
+                            }
                         }
                         else if (incommingData.StartsWith("Host"))
                         {

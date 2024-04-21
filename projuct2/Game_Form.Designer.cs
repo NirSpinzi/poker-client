@@ -641,7 +641,7 @@
             this.TableBetLabel.Location = new System.Drawing.Point(884, 256);
             this.TableBetLabel.MaximumSize = new System.Drawing.Size(500, 500);
             this.TableBetLabel.Name = "TableBetLabel";
-            this.TableBetLabel.Size = new System.Drawing.Size(60, 64);
+            this.TableBetLabel.Size = new System.Drawing.Size(76, 64);
             this.TableBetLabel.TabIndex = 50;
             this.TableBetLabel.Text = "Bet 5K to enter";
             this.TableBetLabel.Visible = false;
@@ -744,7 +744,6 @@
             this.LeaveButton.TabIndex = 60;
             this.LeaveButton.Text = "Leave Match";
             this.LeaveButton.UseVisualStyleBackColor = true;
-            this.LeaveButton.Visible = false;
             this.LeaveButton.Click += new System.EventHandler(this.LeaveButton_Click);
             // 
             // MinRaiseLabel

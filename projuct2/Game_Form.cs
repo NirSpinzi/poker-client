@@ -16,6 +16,7 @@ namespace projuct2
     {
         string username;
         string PicturePath = @"D:\\projects\\poker-client\\projuct2\\picFolder\\";
+        bool isHost = false;
         public Game_Form(string info)
         {
             string[] parts = info.Split(':');
@@ -41,6 +42,7 @@ namespace projuct2
             {
                 start_game_button.Visible = true;
                 start_game_button.Enabled = true;
+                isHost = true;
             }
         }
         private void poker_hands_button_Click(object sender, EventArgs e)
@@ -311,6 +313,7 @@ namespace projuct2
             {
                 ConfirmRaiseButton.Visible = false;
                 RaiseInsertBox.Visible = false; ;
+                MinRaiseLabel.Visible = false;
                 CallButton.Enabled = false;
                 FoldButton.Enabled = false;
                 RaiseButton.Enabled = false;
@@ -536,7 +539,8 @@ namespace projuct2
             string[] parts = info.Split(':');
             WinnerAnnouncementLabel.Text = "The Winner is " + parts[2];
             WinnerAnnouncementLabel.Visible = true;
-            PlayAgainButton.Visible = true;
+            if(isHost)
+                PlayAgainButton.Visible = true;
         }
         public void UpdateWinnerMoney(string info)
         {
@@ -624,7 +628,38 @@ namespace projuct2
         }
         private void PlayAgainButton_Click(object sender, EventArgs e)
         {
-
+            Tikshoret.SendMessage("new_game:");
+        }
+        public void PlayAgain(string info)
+        {
+            string[] parts = info.Split(':');
+            MainCard1.Image = Image.FromFile(PicturePath + "card." + parts[2] + "." + parts[3] + ".jpg");
+            MainCard2.Image = Image.FromFile(PicturePath + "card." + parts[4] + "." + parts[5] + ".jpg");
+            Player1Bet.Text = "";
+            Player2Bet.Text = "";
+            Player3Bet.Text = "";
+            Player4Bet.Text = "";
+            Player5Bet.Text = "";
+            Player6Bet.Text = "";
+            Player7Bet.Text = "";
+            TableCard1.Visible = false;
+            TableCard2.Visible = false;
+            TableCard3.Visible = false;
+            TableCard4.Visible = false;
+            TableCard5.Visible = false;
+            WinnerAnnouncementLabel.Visible = false;
+            Player2Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player2Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player3Card1.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
+            Player3Card2.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
+            Player4Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player4Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player5Card1.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
+            Player5Card2.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
+            Player6Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player6Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player7Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player7Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
         }
     }
 }
