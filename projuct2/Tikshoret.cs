@@ -43,10 +43,6 @@ namespace projuct2
         {
             client.GetStream().BeginRead(data,0,System.Convert.ToInt32(client.ReceiveBufferSize),ReceiveMessage,null);
         }
-        public static void StopRead()
-        {
-            ;
-        }
         private static void ReceiveMessage(IAsyncResult ar)
         {
             try
@@ -180,6 +176,10 @@ namespace projuct2
                         {
                             Game.Invoke((Action)delegate { Game.RevealCards(incommingData); });
                         }
+                        else if (incommingData.StartsWith("leave"))
+                        {
+                            Game.Invoke((Action)delegate { Game.PlayerLeft(incommingData); });
+                        }
                     }
                 }
 
@@ -219,26 +219,6 @@ namespace projuct2
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     internal class RSAServiceProvider
     {
         private string PrivateKey;
@@ -290,32 +270,6 @@ namespace projuct2
             var DecryptedByte = RSA.Decrypt(DataByte, false);
             return Encoder.GetString(DecryptedByte);
         }
-        /// <summary>
-        /// Encrypt the data by public key
-        /// </summary>
-        /// <param name="Data">data to encrypt</param>
-        /// <param name="PublicKey"></param>
-        /// <returns>encripted data</returns>
-        public string Encrypt(string Data, string PublicKey)
-        {
-            var Rsa = new RSACryptoServiceProvider();
-            Rsa.FromXmlString(PublicKey);
-            var DataToEncrypt = Encoder.GetBytes(Data);
-            var EncryptedByteArray = Rsa.Encrypt(DataToEncrypt, false);
-            var Length = EncryptedByteArray.Length;
-            var Item = 0;
-            var StringBuilder = new StringBuilder();
-            foreach (var EncryptedByte in EncryptedByteArray)
-            {
-                Item++;
-                StringBuilder.Append(EncryptedByte);
-
-                if (Item < Length)
-                    StringBuilder.Append(",");
-            }
-
-            return StringBuilder.ToString();
-        }
     }
     internal class AESServiceProvider
     {
@@ -358,96 +312,6 @@ namespace projuct2
             // Return the encrypted string from the memory stream.
             return encrypted;
         }
-        public static byte[] EncryptToBytes(string plainText, byte[] Key, byte[] IV)
-        {
-            // Check arguments.
-            if (plainText == null || plainText.Length <= 0)
-                throw new ArgumentNullException("plainText");
-            if (Key == null || Key.Length <= 0)
-                throw new ArgumentNullException("Key");
-            if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
-            byte[] encrypted;
-
-            // Create an Aes object
-            // with the specified key and IV.
-            using (Aes aesAlg = Aes.Create())
-            {
-                aesAlg.Key = Key;
-                aesAlg.IV = IV;
-
-                // Create an encryptor to perform the stream transform.
-                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
-
-                // Create the streams used for encryption.
-                using (MemoryStream msEncrypt = new MemoryStream())
-                {
-                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                    {
-                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
-                        {
-                            //Write all data to the stream.
-                            swEncrypt.Write(plainText);
-                        }
-                        encrypted = msEncrypt.ToArray();
-                    }
-                }
-            }
-
-            // Return the encrypted string from the memory stream.
-            return encrypted;
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="cipherText"></param>
-        /// <param name="Key"></param>
-        /// <param name="IV"></param>
-        /// <returns>Decrypt String</returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static string DecryptFromByte(byte[] cipherText, byte[] Key, byte[] IV)
-        {
-            // Check arguments.
-            if (cipherText == null || cipherText.Length <= 0)
-                throw new ArgumentNullException("cipherText");
-            if (Key == null || Key.Length <= 0)
-                throw new ArgumentNullException("Key");
-            if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
-
-            // Declare the string used to hold
-            // the decrypted text.
-            string plaintext = null;
-
-            // Create an Aes object
-            // with the specified key and IV.
-            using (Aes aesAlg = Aes.Create())
-            {
-                aesAlg.Key = Key;
-                aesAlg.IV = IV;
-
-                // Create a decryptor to perform the stream transform.
-                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
-
-                // Create the streams used for decryption.
-                using (MemoryStream msDecrypt = new MemoryStream(cipherText))
-                {
-                    using (CryptoStream csDecrypt = new CryptoStream((Stream)msDecrypt, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (StreamReader srDecrypt = new StreamReader((Stream)csDecrypt))
-                        {
-
-                            // Read the decrypted bytes from the decrypting stream
-                            // and place them in a string.
-                            plaintext = srDecrypt.ReadToEnd();
-                        }
-                    }
-                }
-            }
-
-            return plaintext;
-        }
-
         public static string Decrypt(string cipherText, byte[] Key, byte[] IV)
         {
             // Check arguments.

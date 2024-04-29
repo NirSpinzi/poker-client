@@ -168,6 +168,7 @@
             this.Player2Name.Name = "Player2Name";
             this.Player2Name.Size = new System.Drawing.Size(49, 32);
             this.Player2Name.TabIndex = 18;
+            this.Player2Name.Click += new System.EventHandler(this.Player2Name_Click);
             // 
             // Player5Name
             // 

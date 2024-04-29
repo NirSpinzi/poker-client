@@ -123,15 +123,15 @@ namespace projuct2
         private void start_game_button_Click(object sender, EventArgs e)
         {
             Tikshoret.SendMessage("game:start");
-            TableBetLabel.Visible= true;
         }
         public void startGame(string info)
         {
             string[] parts = info.Split(':');
             if (parts[2].Equals("ok"))
             {
-                TableBetLabel.Visible= true;
+                TableBetLabel.Visible = true;
                 start_game_button.Enabled = false;
+                LeaveButton.Enabled = false;
                 MainCard1.Image = Image.FromFile(PicturePath + "card." + parts[3] + "." + parts[4] + ".jpg");
                 MainCard2.Image = Image.FromFile(PicturePath + "card." + parts[5] + "." + parts[6] + ".jpg");
                 MainCard1.Visible= true;
@@ -424,160 +424,152 @@ namespace projuct2
             string[] parts = info.Split(':');
             if (parts[1].Equals("0"))
             {
-                Player1Bet.Text = Player2Bet.Text;
                 Player1Money.Text = Player2Money.Text;
-                Player1Box.Text = Player2Box.Text;
-                MainCard1.Image = Player2Card1.Image;
-                MainCard2.Image= Player2Card2.Image;
-                Player2Bet.Visible = false;
                 Player2Money.Visible = false;
-                Player2Box.Visible = false;
-                Player2Card1.Visible = false;
-                Player2Card2.Visible = false;
+                Player2Name.Text = "";
             }
             else if (parts[1].Equals("1"))
             {
-                Player2Bet.Text = Player3Bet.Text;
                 Player2Money.Text = Player3Money.Text;
-                Player2Box.Text = Player3Box.Text;
-                Player2Card1.Image = Player3Card1.Image;
-                Player2Card2.Image = Player3Card2.Image;
-                Player2Bet.Visible = true;
+                Player2Name.Text = Player3Name.Text;
                 Player2Money.Visible = true;
-                Player2Box.Visible = true;
-                Player2Card1.Visible = true;
-                Player2Card2.Visible = true;
-                Player3Bet.Visible = false;
                 Player3Money.Visible = false;
-                Player3Box.Visible = false;
-                Player3Card1.Visible = false;
-                Player3Card2.Visible = false;
+                Player3Name.Text = "";
             }
             else if (parts[1].Equals("2"))
             {
-                Player3Bet.Text = Player4Bet.Text;
                 Player3Money.Text = Player4Money.Text;
-                Player3Box.Text = Player4Box.Text;
-                Player3Card1.Image = Player4Card1.Image;
-                Player3Card2.Image = Player4Card2.Image;
-                Player3Bet.Visible = true;
+                Player3Name.Text = Player4Name.Text;
                 Player3Money.Visible = true;
-                Player3Box.Visible = true;
-                Player3Card1.Visible = true;
-                Player3Card2.Visible = true;
-                Player4Bet.Visible = false;
                 Player4Money.Visible = false;
-                Player4Box.Visible = false;
-                Player4Card1.Visible = false;
-                Player4Card2.Visible = false;
+                Player4Name.Text = "";
             }
             else if (parts[1].Equals("3"))
             {
-                Player4Bet.Text = Player5Bet.Text;
                 Player4Money.Text = Player5Money.Text;
-                Player4Box.Text = Player5Box.Text;
-                Player4Card1.Image = Player5Card1.Image;
-                Player4Card2.Image = Player5Card2.Image;
-                Player4Bet.Visible = true;
+                Player4Name.Text = Player5Name.Text;
                 Player4Money.Visible = true;
-                Player4Box.Visible = true;
-                Player4Card1.Visible = true;
-                Player4Card2.Visible = true;
-                Player5Bet.Visible = false;
                 Player5Money.Visible = false;
-                Player5Box.Visible = false;
-                Player5Card1.Visible = false;
-                Player5Card2.Visible = false;
+                Player5Name.Text = "";
             }
             else if (parts[1].Equals("4"))
             {
-                Player5Bet.Text = Player6Bet.Text;
                 Player5Money.Text = Player6Money.Text;
-                Player5Box.Text = Player6Box.Text;
-                Player5Card1.Image = Player6Card1.Image;
-                Player5Card2.Image = Player6Card2.Image;
-                Player5Bet.Visible = true;
+                Player5Name.Text = Player6Name.Text;
                 Player5Money.Visible = true;
-                Player5Box.Visible = true;
-                Player5Card1.Visible = true;
-                Player5Card2.Visible = true;
-                Player6Bet.Visible = false;
                 Player6Money.Visible = false;
-                Player6Box.Visible = false;
-                Player6Card1.Visible = false;
-                Player6Card2.Visible = false;
+                Player6Name.Text = "";
             }
             else if (parts[1].Equals("5"))
             {
-                Player6Bet.Text = Player7Bet.Text;
                 Player6Money.Text = Player7Money.Text;
-                Player6Box.Text = Player7Box.Text;
-                Player6Card1.Image = Player7Card1.Image;
-                Player6Card2.Image = Player7Card2.Image;
-                Player6Bet.Visible = true;
+                Player6Name.Text = Player7Name.Text;
                 Player6Money.Visible = true;
-                Player6Box.Visible = true;
-                Player6Card1.Visible = true;
-                Player6Card2.Visible = true;
-                Player7Bet.Visible = false;
                 Player7Money.Visible = false;
-                Player7Box.Visible = false;
-                Player7Card1.Visible = false;
-                Player7Card2.Visible = false;
+                Player7Name.Text = "";
             }
             else if (parts[1].Equals("6"))
             {
-                Player7Bet.Visible = false;
                 Player7Money.Visible = false;
-                Player7Box.Visible = false;
-                Player7Card1.Visible = false;
-                Player7Card2.Visible = false;
+                Player7Name.Text = "";
             }
         }
         public void WinnerAnnouncement(string info)
         {
             string[] parts = info.Split(':');
-            WinnerAnnouncementLabel.Text = "The Winner is " + parts[2];
+            if (parts[1].Equals("winners"))
+            {
+                switch (parts[1])
+                {
+                    case "2":
+                        {
+                            WinnerAnnouncementLabel.Text = "A tie between " + parts[3] + " and " + parts[6];
+                            break;
+                        }
+                    case "3":
+                        {
+                            WinnerAnnouncementLabel.Text = "A tie between " + parts[3] + ", " + parts[6] + " and " + parts[9];
+                            break;
+                        }
+                    case "4":
+                        {
+                            WinnerAnnouncementLabel.Text = "A tie between " + parts[3] + ", " + parts[6] + ", " + parts[9] + " and " + parts[12];
+                            break;
+                        }
+                }
+            }
+            else WinnerAnnouncementLabel.Text = "The Winner is " + parts[2];
             WinnerAnnouncementLabel.Visible = true;
+            CallButton.Enabled = false;
+            FoldButton.Enabled = false;
+            RaiseButton.Enabled = false;
+            LeaveButton.Enabled = true;
+            ConfirmRaiseButton.Visible= false;
+            MinRaiseLabel.Visible= false;
+            RaiseInsertBox.Visible= false;
             if(isHost)
                 PlayAgainButton.Visible = true;
         }
         public void UpdateWinnerMoney(string info)
         {
             string[] parts = info.Split(':');
-            if (parts[2].Equals(username))
+            if (parts[1].Equals("winners"))
             {
-                Player1Money.Text = parts[3] + "$";
+                switch (parts[1])
+                {
+                    case "2":
+                        {
+                            
+                            break;
+                        }
+                    case "3":
+                        {
+                            
+                            break;
+                        }
+                    case "4":
+                        {
+                            
+                            break;
+                        }
+                }
             }
             else
             {
-                if (parts[1].Equals("0"))
+                if (parts[2].Equals(username))
                 {
-                    Tikshoret.SendMessage("table:update_money:");
+                    Player1Money.Text = parts[3] + "$";
                 }
-                if (parts[1].Equals("1"))
+                else
                 {
-                    Player2Money.Text = parts[3] + "$";
-                }
-                if (parts[1].Equals("2"))
-                {
-                    Player3Money.Text = parts[3] + "$";
-                }
-                if (parts[1].Equals("3"))
-                {
-                    Player4Money.Text = parts[3] + "$";
-                }
-                if (parts[1].Equals("4"))
-                {
-                    Player5Money.Text = parts[3] + "$";
-                }
-                if (parts[1].Equals("5"))
-                {
-                    Player6Money.Text = parts[3] + "$";
-                }
-                if (parts[1].Equals("6"))
-                {
-                    Player7Money.Text = parts[3] + "$";
+                    if (parts[1].Equals("0"))
+                    {
+                        Tikshoret.SendMessage("table:update_money:");
+                    }
+                    if (parts[1].Equals("1"))
+                    {
+                        Player2Money.Text = parts[3] + "$";
+                    }
+                    if (parts[1].Equals("2"))
+                    {
+                        Player3Money.Text = parts[3] + "$";
+                    }
+                    if (parts[1].Equals("3"))
+                    {
+                        Player4Money.Text = parts[3] + "$";
+                    }
+                    if (parts[1].Equals("4"))
+                    {
+                        Player5Money.Text = parts[3] + "$";
+                    }
+                    if (parts[1].Equals("5"))
+                    {
+                        Player6Money.Text = parts[3] + "$";
+                    }
+                    if (parts[1].Equals("6"))
+                    {
+                        Player7Money.Text = parts[3] + "$";
+                    }
                 }
             }
         }
@@ -660,6 +652,106 @@ namespace projuct2
             Player6Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
             Player7Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
             Player7Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            MainCard1.Visible = true;
+            MainCard2.Visible = true;
+            Player2Card1.Visible = true;
+            Player2Card2.Visible = true;
+            if (Player3Money.Visible)
+            {
+                Player3Card1.Visible = true;
+                Player3Card2.Visible = true;
+            }
+            if (Player4Money.Visible)
+            {
+                Player4Card1.Visible = true;
+                Player4Card2.Visible = true;
+            }
+            if (Player5Money.Visible)
+            {
+                Player5Card1.Visible = true;
+                Player5Card2.Visible = true;
+            }
+            if (Player6Money.Visible)
+            {
+                Player6Card1.Visible = true;
+                Player6Card2.Visible = true;
+            }
+            if (Player7Money.Visible)
+            {
+                Player7Card1.Visible = true;
+                Player7Card2.Visible = true;
+            }
+        }
+        public void PlayerLeft(string info)
+        {
+            string[] parts = info.Split(':');
+            switch(parts[1]) 
+            {
+                case "0":
+                    {
+                        Tikshoret.SendMessage("table:leave");
+                        break;
+                    }
+                case "1": 
+                    {
+                        Player2Bet.Visible = false;
+                        Player2Name.Text = "";
+                        Player2Card1.Visible = false;
+                        Player2Card2.Visible = false;
+                        Player2Money.Visible = false;
+                        break;
+                    }
+                case "2":
+                    {
+                        Player3Bet.Visible = false;
+                        Player3Name.Text = "";
+                        Player3Card1.Visible = false;
+                        Player3Card2.Visible = false;
+                        Player3Money.Visible = false;
+                        break;
+                    }
+                case "3":
+                    {
+                        Player4Bet.Visible = false;
+                        Player4Name.Text = "";
+                        Player4Card1.Visible = false;
+                        Player4Card2.Visible = false;
+                        Player4Money.Visible = false;
+                        break;
+                    }
+                case "4":
+                    {
+                        Player5Bet.Visible = false;
+                        Player5Name.Text = "";
+                        Player5Card1.Visible = false;
+                        Player5Card2.Visible = false;
+                        Player5Money.Visible = false;
+                        break;
+                    }
+                case "5":
+                    {
+                        Player6Bet.Visible = false;
+                        Player6Name.Text = "";
+                        Player6Card1.Visible = false;
+                        Player6Card2.Visible = false;
+                        Player6Money.Visible = false;
+                        break;
+                    }
+                case "6":
+                    {
+                        Player7Bet.Visible = false;
+                        Player7Name.Text = "";
+                        Player7Card1.Visible = false;
+                        Player7Card2.Visible = false;
+                        Player7Money.Visible = false;
+                        break;
+                    }
+            }
+            
+        }
+        private void Player2Name_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -37,6 +37,7 @@
             this.reset_password_label = new System.Windows.Forms.Label();
             this.password_reset_box = new System.Windows.Forms.TextBox();
             this.confirm_new_password_button = new System.Windows.Forms.Button();
+            this.PasswordRequirementsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -124,11 +125,25 @@
             this.confirm_new_password_button.Visible = false;
             this.confirm_new_password_button.Click += new System.EventHandler(this.confirm_new_password_button_Click);
             // 
+            // PasswordRequirementsLabel
+            // 
+            this.PasswordRequirementsLabel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PasswordRequirementsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.PasswordRequirementsLabel.Location = new System.Drawing.Point(53, 328);
+            this.PasswordRequirementsLabel.MaximumSize = new System.Drawing.Size(500, 500);
+            this.PasswordRequirementsLabel.Name = "PasswordRequirementsLabel";
+            this.PasswordRequirementsLabel.Size = new System.Drawing.Size(410, 103);
+            this.PasswordRequirementsLabel.TabIndex = 13;
+            this.PasswordRequirementsLabel.Text = "Password must contain at least 1 uppercase letter, at least 1 lowercase letter an" +
+    "d at least 1 digit. must not contain parenrthesis or equals sign.";
+            this.PasswordRequirementsLabel.Visible = false;
+            // 
             // Password_Reset_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 405);
+            this.ClientSize = new System.Drawing.Size(538, 440);
+            this.Controls.Add(this.PasswordRequirementsLabel);
             this.Controls.Add(this.confirm_new_password_button);
             this.Controls.Add(this.password_reset_box);
             this.Controls.Add(this.reset_password_label);
@@ -156,5 +171,6 @@
         private System.Windows.Forms.Label reset_password_label;
         private System.Windows.Forms.TextBox password_reset_box;
         private System.Windows.Forms.Button confirm_new_password_button;
+        private System.Windows.Forms.Label PasswordRequirementsLabel;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace projuct2
@@ -10,7 +11,7 @@ namespace projuct2
     public partial class Login_Form : Form
     {
         // Fields
-        int captchaid;
+        int captchaID;
         public Login_Form()
         {
             InitializeComponent();
@@ -25,14 +26,15 @@ namespace projuct2
         {
             if (!Capthca_checkbox.Checked) 
             {
-                MessageBox.Show("Please check the 'i'm not a robot' box");
+                MessageBox.Show("Please check the 'I'm not a robot' box");
                 return;
             }
+            Login_button.Enabled = false;
             // Get the user's login information.
             string username = username_box.Text;
             string password = password_box.Text;
             // Send the user's login information to the server.
-            Tikshoret.SendMessage("login:" + username + ":" + password + ":" + captchaid + ":" + CaptchaTextBox.Text);
+            Tikshoret.SendMessage("login:" + username + ":" + password + ":" + captchaID + ":" + CaptchaTextBox.Text);
         }
         /// <summary>
         /// Reads a message from the server using the established TCP connection.
@@ -70,11 +72,12 @@ namespace projuct2
         public void SetCaptchaImage(string info)
         {
             String[] parts = info.Split(':');
-            captchaid = int.Parse(parts[1]);
+            captchaID = int.Parse(parts[1]);
             CaptchaImageBox.Image = Image.FromFile("D:\\projects\\projuct2\\projuct2\\picFolder\\CaptchaImage" + parts[1] + ".png");
         }
         public void LoginRequest(string info)
         {
+            Login_button.Enabled = true;
             string[] parts = info.Split(':');
             if (parts[1].Equals("ok"))
             {
@@ -88,21 +91,17 @@ namespace projuct2
             {
                 MessageBox.Show("Captcha answer is incorrect");
             }
+            else if (parts[1].StartsWith("user"))
+            {
+                MessageBox.Show("The user is already logged in");
+            }
             else
             {
                 // If the login is not successful, show an error message.
                 MessageBox.Show("The username or password is incorrect");
             }
         }
-        private void email_box_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void pictureBox6_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void pictureBox7_Click(object sender, EventArgs e)
         {
 
         }

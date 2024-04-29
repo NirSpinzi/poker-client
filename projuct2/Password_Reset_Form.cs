@@ -44,6 +44,7 @@ namespace projuct2
                     reset_password_label.Visible = true;
                     password_reset_box.Visible = true;
                     confirm_new_password_button.Visible = true;
+                    PasswordRequirementsLabel.Visible = true;
                 }
                 else MessageBox.Show("The code you entered is incorrect");
             }
@@ -55,7 +56,7 @@ namespace projuct2
                 Tikshoret.login = new Login_Form();
                 this.Invoke(new Action(() => Tikshoret.login.ShowDialog()));
             }
-            else MessageBox.Show("An eror has occurred. Please try again later");
+            else MessageBox.Show("Password does not meat the requirements.");
         }
 
         private void email_code_confirmation_button_Click(object sender, EventArgs e)

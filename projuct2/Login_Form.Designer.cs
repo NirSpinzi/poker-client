@@ -39,10 +39,10 @@
             this.Capthca_checkbox = new System.Windows.Forms.CheckBox();
             this.CaptchaTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.CaptchaImageBox = new System.Windows.Forms.PictureBox();
             this.cooldownBox = new System.Windows.Forms.Label();
             this.ForgotPasswordButton = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.CaptchaImageBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CaptchaImageBox)).BeginInit();
             this.SuspendLayout();
@@ -164,26 +164,6 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Enter word here:";
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(829, 179);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(80, 65);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 19;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            // 
-            // CaptchaImageBox
-            // 
-            this.CaptchaImageBox.Location = new System.Drawing.Point(697, 262);
-            this.CaptchaImageBox.Name = "CaptchaImageBox";
-            this.CaptchaImageBox.Size = new System.Drawing.Size(212, 80);
-            this.CaptchaImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CaptchaImageBox.TabIndex = 14;
-            this.CaptchaImageBox.TabStop = false;
-            this.CaptchaImageBox.Click += new System.EventHandler(this.CaptchaImageBox_Click);
-            // 
             // cooldownBox
             // 
             this.cooldownBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
@@ -201,6 +181,27 @@
             this.ForgotPasswordButton.Text = "Forgot my password";
             this.ForgotPasswordButton.UseVisualStyleBackColor = true;
             this.ForgotPasswordButton.Click += new System.EventHandler(this.ForgotPasswordButton_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::projuct2.Properties.Resources.RecaptchaLogo1;
+            this.pictureBox6.Location = new System.Drawing.Point(829, 179);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(80, 65);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 19;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            // 
+            // CaptchaImageBox
+            // 
+            this.CaptchaImageBox.Location = new System.Drawing.Point(697, 262);
+            this.CaptchaImageBox.Name = "CaptchaImageBox";
+            this.CaptchaImageBox.Size = new System.Drawing.Size(212, 80);
+            this.CaptchaImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CaptchaImageBox.TabIndex = 14;
+            this.CaptchaImageBox.TabStop = false;
+            this.CaptchaImageBox.Click += new System.EventHandler(this.CaptchaImageBox_Click);
             // 
             // Login_Form
             // 
