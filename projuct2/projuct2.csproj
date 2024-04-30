@@ -52,6 +52,12 @@
     <Compile Include="Email_Ver_Form.Designer.cs">
       <DependentUpon>Email_Ver_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rules_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rules_Form.Designer.cs">
+      <DependentUpon>Rules_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Game_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rules_Form.resx">
+      <DependentUpon>Rules_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -179,6 +188,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="picFolder\bakc_scard34 - sideways.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="picFolder\Arrow_Pointing_Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="picFolder\Flop_Turn_River_Example_Pic.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,6 +12,7 @@ namespace projuct2
     {
         // Fields
         int captchaID;
+        string CaptchaPath = @"D:\\projects\\poker-client\\projuct2\\picFolder\\CaptchaImage";
         public Login_Form()
         {
             InitializeComponent();
@@ -47,6 +48,7 @@ namespace projuct2
             // Create a new instance of Form2 and pass the client object to it.
             Tikshoret.regist = new Regist_Form();
             this.Invoke(new Action(() => Tikshoret.regist.ShowDialog()));
+            Close();
         }
 
         private void username_box_TextChanged(object sender, EventArgs e)
@@ -73,7 +75,7 @@ namespace projuct2
         {
             String[] parts = info.Split(':');
             captchaID = int.Parse(parts[1]);
-            CaptchaImageBox.Image = Image.FromFile("D:\\projects\\projuct2\\projuct2\\picFolder\\CaptchaImage" + parts[1] + ".png");
+            CaptchaImageBox.Image = Image.FromFile(CaptchaPath + parts[1] + ".png");
         }
         public void LoginRequest(string info)
         {
@@ -85,6 +87,7 @@ namespace projuct2
                 // Create a new instance of Form2 and pass the client object to it.
                 Tikshoret.GameMenu = new Game_Menu_Form(username_box.Text);
                 this.Invoke(new Action(() => Tikshoret.GameMenu.ShowDialog()));
+                Close();
             }
             // If capthca is incorrect
             else if (parts[1].Equals("captchaIncorrect"))
@@ -120,6 +123,7 @@ namespace projuct2
             // Create a new instance of Form2 and pass the client object to it.
             Tikshoret.password_ = new Password_Reset_Form();
             this.Invoke(new Action(() => Tikshoret.password_.ShowDialog()));
+            Close();
         }
     }
 }

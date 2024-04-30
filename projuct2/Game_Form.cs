@@ -129,6 +129,7 @@ namespace projuct2
             string[] parts = info.Split(':');
             if (parts[2].Equals("ok"))
             {
+                resetTable();
                 TableBetLabel.Visible = true;
                 start_game_button.Enabled = false;
                 LeaveButton.Enabled = false;
@@ -197,7 +198,6 @@ namespace projuct2
             RaiseButton.Enabled=false;
             ConfirmRaiseButton.Visible = false;
             RaiseInsertBox.Visible = false; ;
-            TimeForTurnLabel.Visible = false;
         }
         private void FoldButton_Click(object sender, EventArgs e)
         {
@@ -207,7 +207,6 @@ namespace projuct2
             RaiseButton.Enabled = false;
             ConfirmRaiseButton.Visible = false;
             RaiseInsertBox.Visible = false; ;
-            TimeForTurnLabel.Visible = false;
         }
         public void CallBet(string info)
         {
@@ -263,7 +262,6 @@ namespace projuct2
             RaiseButton.Enabled = false;
             ConfirmRaiseButton.Visible = false;
             RaiseInsertBox.Visible = false;
-            TimeForTurnLabel.Visible = false;
             if (parts[2].Equals(username))
             {
                 Player1Bet.Text += "Folded";
@@ -317,7 +315,6 @@ namespace projuct2
                 CallButton.Enabled = false;
                 FoldButton.Enabled = false;
                 RaiseButton.Enabled = false;
-                TimeForTurnLabel.Visible = false;
                 TableBetLabel.Text = "Current Bet:" + parts[1] + "$";
                 if (parts[3].Equals(username))
                 {
@@ -368,7 +365,6 @@ namespace projuct2
             RaiseButton.Enabled = true;
             CallButton.Enabled = true;
             FoldButton.Enabled = true;
-            TimeForTurnLabel.Visible = true;
         }
         public void RoundEnd(string info)
         {
@@ -397,11 +393,6 @@ namespace projuct2
         {
 
         }
-        public void GameTimerTick(string info)
-        {
-            string[] parts = info.Split(':');
-            TimeForTurnLabel.Text = parts[1];
-        }
         private void TableCard1_Click(object sender, EventArgs e)
         {
 
@@ -414,10 +405,10 @@ namespace projuct2
         {
             Tikshoret.SendMessage("leave:");
             Hide();
-            //this.Close();
             // Create a new instance of Form2 and pass the client object to it.
             Tikshoret.GameMenu = new Game_Menu_Form(username);
             this.Invoke(new Action(() => Tikshoret.GameMenu.ShowDialog()));
+            Close();
         }
         public void Switch(string info)
         {
@@ -477,28 +468,28 @@ namespace projuct2
         public void WinnerAnnouncement(string info)
         {
             string[] parts = info.Split(':');
-            if (parts[1].Equals("winners"))
+            if (parts[0].Equals("winners"))
             {
                 switch (parts[1])
                 {
                     case "2":
                         {
-                            WinnerAnnouncementLabel.Text = "A tie between " + parts[3] + " and " + parts[6];
+                            WinnerAnnouncementLabel.Text = "A tie between " + parts[2] + " and " + parts[4];
                             break;
                         }
                     case "3":
                         {
-                            WinnerAnnouncementLabel.Text = "A tie between " + parts[3] + ", " + parts[6] + " and " + parts[9];
+                            WinnerAnnouncementLabel.Text = "A tie between " + parts[2] + ", " + parts[4] + " and " + parts[6];
                             break;
                         }
                     case "4":
                         {
-                            WinnerAnnouncementLabel.Text = "A tie between " + parts[3] + ", " + parts[6] + ", " + parts[9] + " and " + parts[12];
+                            WinnerAnnouncementLabel.Text = "A tie between " + parts[2] + ", " + parts[4] + ", " + parts[6] + " and " + parts[8];
                             break;
                         }
                 }
             }
-            else WinnerAnnouncementLabel.Text = "The Winner is " + parts[2];
+            else WinnerAnnouncementLabel.Text = "The Winner is " + parts[1];
             WinnerAnnouncementLabel.Visible = true;
             CallButton.Enabled = false;
             FoldButton.Enabled = false;
@@ -507,70 +498,73 @@ namespace projuct2
             ConfirmRaiseButton.Visible= false;
             MinRaiseLabel.Visible= false;
             RaiseInsertBox.Visible= false;
-            if(isHost)
+            if (isHost)
+            {
                 PlayAgainButton.Visible = true;
+                PlayAgainButton.Enabled = true;
+            }
         }
         public void UpdateWinnerMoney(string info)
         {
             string[] parts = info.Split(':');
-            if (parts[1].Equals("winners"))
+            if (parts[0].Equals("winners"))
             {
                 switch (parts[1])
                 {
                     case "2":
                         {
-                            
+                            UpdateMoney(parts[2], parts[3]);
+                            UpdateMoney(parts[4], parts[5]);
                             break;
                         }
                     case "3":
                         {
-                            
+                            UpdateMoney(parts[2], parts[3]);
+                            UpdateMoney(parts[4], parts[5]);
+                            UpdateMoney(parts[6], parts[7]);
                             break;
                         }
                     case "4":
                         {
-                            
+                            UpdateMoney(parts[2], parts[3]);
+                            UpdateMoney(parts[4], parts[5]);
+                            UpdateMoney(parts[6], parts[7]);
+                            UpdateMoney(parts[8], parts[9]);
                             break;
                         }
                 }
             }
-            else
+            else UpdateMoney(parts[1], parts[2]);
+        }
+        private void UpdateMoney(string username, string money)
+        {
+            if (username.Equals(Your_Name_label.Text))
             {
-                if (parts[2].Equals(username))
-                {
-                    Player1Money.Text = parts[3] + "$";
-                }
-                else
-                {
-                    if (parts[1].Equals("0"))
-                    {
-                        Tikshoret.SendMessage("table:update_money:");
-                    }
-                    if (parts[1].Equals("1"))
-                    {
-                        Player2Money.Text = parts[3] + "$";
-                    }
-                    if (parts[1].Equals("2"))
-                    {
-                        Player3Money.Text = parts[3] + "$";
-                    }
-                    if (parts[1].Equals("3"))
-                    {
-                        Player4Money.Text = parts[3] + "$";
-                    }
-                    if (parts[1].Equals("4"))
-                    {
-                        Player5Money.Text = parts[3] + "$";
-                    }
-                    if (parts[1].Equals("5"))
-                    {
-                        Player6Money.Text = parts[3] + "$";
-                    }
-                    if (parts[1].Equals("6"))
-                    {
-                        Player7Money.Text = parts[3] + "$";
-                    }
-                }
+                Player1Money.Text = money + "$";
+            }
+            if (username.Equals(Player2Name.Text))
+            {
+                Player2Money.Text = money + "$";
+            }
+            if (username.Equals(Player3Name.Text))
+            {
+                Player3Money.Text = money + "$";
+            }
+            if (username.Equals(Player4Name.Text))
+            {
+                Player4Money.Text = money + "$";
+            }
+            if (username.Equals(Player5Name.Text))
+            {
+                Player5Money.Text = money + "$";
+            }
+            if (username.Equals(Player6Name.Text))
+            {
+                Player6Money.Text = money + "$";
+            }
+            if (username.Equals(Player7Name.Text))
+            {
+                Player7Money.Text = money + "$";
             }
         }
         public void RevealCards(string info)
@@ -624,34 +618,11 @@ namespace projuct2
         }
         public void PlayAgain(string info)
         {
+            PlayAgainButton.Enabled = false;
             string[] parts = info.Split(':');
             MainCard1.Image = Image.FromFile(PicturePath + "card." + parts[2] + "." + parts[3] + ".jpg");
             MainCard2.Image = Image.FromFile(PicturePath + "card." + parts[4] + "." + parts[5] + ".jpg");
-            Player1Bet.Text = "";
-            Player2Bet.Text = "";
-            Player3Bet.Text = "";
-            Player4Bet.Text = "";
-            Player5Bet.Text = "";
-            Player6Bet.Text = "";
-            Player7Bet.Text = "";
-            TableCard1.Visible = false;
-            TableCard2.Visible = false;
-            TableCard3.Visible = false;
-            TableCard4.Visible = false;
-            TableCard5.Visible = false;
-            WinnerAnnouncementLabel.Visible = false;
-            Player2Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
-            Player2Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
-            Player3Card1.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
-            Player3Card2.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
-            Player4Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
-            Player4Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
-            Player5Card1.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
-            Player5Card2.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
-            Player6Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
-            Player6Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
-            Player7Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
-            Player7Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            resetTable();
             MainCard1.Visible = true;
             MainCard2.Visible = true;
             Player2Card1.Visible = true;
@@ -681,6 +652,34 @@ namespace projuct2
                 Player7Card1.Visible = true;
                 Player7Card2.Visible = true;
             }
+        }
+        private void resetTable()
+        {
+            Player1Bet.Text = "";
+            Player2Bet.Text = "";
+            Player3Bet.Text = "";
+            Player4Bet.Text = "";
+            Player5Bet.Text = "";
+            Player6Bet.Text = "";
+            Player7Bet.Text = "";
+            TableCard1.Visible = false;
+            TableCard2.Visible = false;
+            TableCard3.Visible = false;
+            TableCard4.Visible = false;
+            TableCard5.Visible = false;
+            WinnerAnnouncementLabel.Visible = false;
+            Player2Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player2Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player3Card1.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
+            Player3Card2.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
+            Player4Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player4Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player5Card1.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
+            Player5Card2.Image = Image.FromFile(PicturePath + "bakc_scard34 - sideways.jpg");
+            Player6Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player6Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player7Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
+            Player7Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
         }
         public void PlayerLeft(string info)
         {
@@ -752,6 +751,11 @@ namespace projuct2
         private void Player2Name_Click(object sender, EventArgs e)
         {
 
+        }
+        private void View_Rules_Button_Click(object sender, EventArgs e)
+        {
+            Form form = new Rules_Form();
+            form.Show();
         }
     }
 }

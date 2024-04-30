@@ -63,6 +63,16 @@ namespace projuct2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Arrow_Pointing_Back {
+            get {
+                object obj = ResourceManager.GetObject("Arrow_Pointing_Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Back_arrow {
             get {
                 object obj = ResourceManager.GetObject("Back_arrow", resourceCulture);
@@ -196,6 +206,16 @@ namespace projuct2.Properties {
         internal static System.Drawing.Bitmap Circle1 {
             get {
                 object obj = ResourceManager.GetObject("Circle1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Flop_Turn_River_Example_Pic {
+            get {
+                object obj = ResourceManager.GetObject("Flop_Turn_River_Example_Pic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

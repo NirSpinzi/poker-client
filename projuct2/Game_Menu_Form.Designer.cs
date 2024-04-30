@@ -31,6 +31,7 @@
             this.Menu_label = new System.Windows.Forms.Label();
             this.Find_Match_button = new System.Windows.Forms.Button();
             this.Host_Game_button = new System.Windows.Forms.Button();
+            this.Exit_Game_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Menu_label
@@ -68,11 +69,22 @@
             this.Host_Game_button.UseVisualStyleBackColor = true;
             this.Host_Game_button.Click += new System.EventHandler(this.Host_Game_button_Click);
             // 
+            // Exit_Game_Button
+            // 
+            this.Exit_Game_Button.Location = new System.Drawing.Point(12, 9);
+            this.Exit_Game_Button.Name = "Exit_Game_Button";
+            this.Exit_Game_Button.Size = new System.Drawing.Size(75, 23);
+            this.Exit_Game_Button.TabIndex = 5;
+            this.Exit_Game_Button.Text = "Exit Game";
+            this.Exit_Game_Button.UseVisualStyleBackColor = true;
+            this.Exit_Game_Button.Click += new System.EventHandler(this.Exit_Game_Button_Click);
+            // 
             // Game_Menu_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 615);
+            this.Controls.Add(this.Exit_Game_Button);
             this.Controls.Add(this.Host_Game_button);
             this.Controls.Add(this.Find_Match_button);
             this.Controls.Add(this.Menu_label);
@@ -87,5 +99,6 @@
         private System.Windows.Forms.Label Menu_label;
         private System.Windows.Forms.Button Find_Match_button;
         private System.Windows.Forms.Button Host_Game_button;
+        private System.Windows.Forms.Button Exit_Game_Button;
     }
 }

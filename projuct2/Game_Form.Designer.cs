@@ -48,6 +48,21 @@
             this.FoldButton = new System.Windows.Forms.Button();
             this.RaiseButton = new System.Windows.Forms.Button();
             this.CallButton = new System.Windows.Forms.Button();
+            this.TableBetLabel = new System.Windows.Forms.Label();
+            this.Player1Bet = new System.Windows.Forms.Label();
+            this.Player2Bet = new System.Windows.Forms.Label();
+            this.Player4Bet = new System.Windows.Forms.Label();
+            this.Player6Bet = new System.Windows.Forms.Label();
+            this.Player5Bet = new System.Windows.Forms.Label();
+            this.Player7Bet = new System.Windows.Forms.Label();
+            this.Player3Bet = new System.Windows.Forms.Label();
+            this.RaiseInsertBox = new System.Windows.Forms.TextBox();
+            this.ConfirmRaiseButton = new System.Windows.Forms.Button();
+            this.LeaveButton = new System.Windows.Forms.Button();
+            this.MinRaiseLabel = new System.Windows.Forms.Label();
+            this.WinnerAnnouncementLabel = new System.Windows.Forms.Label();
+            this.PlayAgainButton = new System.Windows.Forms.Button();
+            this.View_Rules_Button = new System.Windows.Forms.Button();
             this.Player3Card2 = new System.Windows.Forms.PictureBox();
             this.Player5Card1 = new System.Windows.Forms.PictureBox();
             this.Player5Card2 = new System.Windows.Forms.PictureBox();
@@ -77,21 +92,6 @@
             this.Player1Box = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PokerTable = new System.Windows.Forms.PictureBox();
-            this.TableBetLabel = new System.Windows.Forms.Label();
-            this.Player1Bet = new System.Windows.Forms.Label();
-            this.Player2Bet = new System.Windows.Forms.Label();
-            this.Player4Bet = new System.Windows.Forms.Label();
-            this.Player6Bet = new System.Windows.Forms.Label();
-            this.Player5Bet = new System.Windows.Forms.Label();
-            this.Player7Bet = new System.Windows.Forms.Label();
-            this.Player3Bet = new System.Windows.Forms.Label();
-            this.RaiseInsertBox = new System.Windows.Forms.TextBox();
-            this.ConfirmRaiseButton = new System.Windows.Forms.Button();
-            this.LeaveButton = new System.Windows.Forms.Button();
-            this.MinRaiseLabel = new System.Windows.Forms.Label();
-            this.TimeForTurnLabel = new System.Windows.Forms.Label();
-            this.WinnerAnnouncementLabel = new System.Windows.Forms.Label();
-            this.PlayAgainButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Player3Card2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player5Card1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player5Card2)).BeginInit();
@@ -310,6 +310,163 @@
             this.CallButton.Text = "Call";
             this.CallButton.UseVisualStyleBackColor = true;
             this.CallButton.Click += new System.EventHandler(this.CallButton_Click);
+            // 
+            // TableBetLabel
+            // 
+            this.TableBetLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TableBetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.TableBetLabel.Location = new System.Drawing.Point(884, 256);
+            this.TableBetLabel.MaximumSize = new System.Drawing.Size(500, 500);
+            this.TableBetLabel.Name = "TableBetLabel";
+            this.TableBetLabel.Size = new System.Drawing.Size(76, 64);
+            this.TableBetLabel.TabIndex = 50;
+            this.TableBetLabel.Text = "Bet 5K to enter";
+            this.TableBetLabel.Visible = false;
+            // 
+            // Player1Bet
+            // 
+            this.Player1Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player1Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player1Bet.Location = new System.Drawing.Point(669, 329);
+            this.Player1Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player1Bet.Name = "Player1Bet";
+            this.Player1Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player1Bet.TabIndex = 51;
+            // 
+            // Player2Bet
+            // 
+            this.Player2Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player2Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player2Bet.Location = new System.Drawing.Point(954, 175);
+            this.Player2Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player2Bet.Name = "Player2Bet";
+            this.Player2Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player2Bet.TabIndex = 52;
+            // 
+            // Player4Bet
+            // 
+            this.Player4Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player4Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player4Bet.Location = new System.Drawing.Point(954, 329);
+            this.Player4Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player4Bet.Name = "Player4Bet";
+            this.Player4Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player4Bet.TabIndex = 53;
+            // 
+            // Player6Bet
+            // 
+            this.Player6Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player6Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player6Bet.Location = new System.Drawing.Point(399, 175);
+            this.Player6Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player6Bet.Name = "Player6Bet";
+            this.Player6Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player6Bet.TabIndex = 54;
+            // 
+            // Player5Bet
+            // 
+            this.Player5Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player5Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player5Bet.Location = new System.Drawing.Point(1114, 255);
+            this.Player5Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player5Bet.Name = "Player5Bet";
+            this.Player5Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player5Bet.TabIndex = 55;
+            // 
+            // Player7Bet
+            // 
+            this.Player7Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player7Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player7Bet.Location = new System.Drawing.Point(399, 329);
+            this.Player7Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player7Bet.Name = "Player7Bet";
+            this.Player7Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player7Bet.TabIndex = 56;
+            this.Player7Bet.Visible = false;
+            // 
+            // Player3Bet
+            // 
+            this.Player3Bet.BackColor = System.Drawing.Color.Transparent;
+            this.Player3Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Player3Bet.Location = new System.Drawing.Point(232, 253);
+            this.Player3Bet.MaximumSize = new System.Drawing.Size(500, 500);
+            this.Player3Bet.Name = "Player3Bet";
+            this.Player3Bet.Size = new System.Drawing.Size(60, 64);
+            this.Player3Bet.TabIndex = 57;
+            // 
+            // RaiseInsertBox
+            // 
+            this.RaiseInsertBox.Location = new System.Drawing.Point(860, 626);
+            this.RaiseInsertBox.Name = "RaiseInsertBox";
+            this.RaiseInsertBox.Size = new System.Drawing.Size(100, 20);
+            this.RaiseInsertBox.TabIndex = 58;
+            this.RaiseInsertBox.Visible = false;
+            // 
+            // ConfirmRaiseButton
+            // 
+            this.ConfirmRaiseButton.Location = new System.Drawing.Point(966, 620);
+            this.ConfirmRaiseButton.Name = "ConfirmRaiseButton";
+            this.ConfirmRaiseButton.Size = new System.Drawing.Size(98, 31);
+            this.ConfirmRaiseButton.TabIndex = 59;
+            this.ConfirmRaiseButton.Text = "Confirm Raise";
+            this.ConfirmRaiseButton.UseVisualStyleBackColor = true;
+            this.ConfirmRaiseButton.Visible = false;
+            this.ConfirmRaiseButton.Click += new System.EventHandler(this.ConfirmRaiseButton_Click);
+            // 
+            // LeaveButton
+            // 
+            this.LeaveButton.Location = new System.Drawing.Point(11, 23);
+            this.LeaveButton.Name = "LeaveButton";
+            this.LeaveButton.Size = new System.Drawing.Size(98, 31);
+            this.LeaveButton.TabIndex = 60;
+            this.LeaveButton.Text = "Leave Match";
+            this.LeaveButton.UseVisualStyleBackColor = true;
+            this.LeaveButton.Click += new System.EventHandler(this.LeaveButton_Click);
+            // 
+            // MinRaiseLabel
+            // 
+            this.MinRaiseLabel.BackColor = System.Drawing.Color.Transparent;
+            this.MinRaiseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.MinRaiseLabel.Location = new System.Drawing.Point(860, 604);
+            this.MinRaiseLabel.MaximumSize = new System.Drawing.Size(500, 500);
+            this.MinRaiseLabel.Name = "MinRaiseLabel";
+            this.MinRaiseLabel.Size = new System.Drawing.Size(100, 18);
+            this.MinRaiseLabel.TabIndex = 61;
+            this.MinRaiseLabel.Text = "Min raise is 5K";
+            this.MinRaiseLabel.Visible = false;
+            // 
+            // WinnerAnnouncementLabel
+            // 
+            this.WinnerAnnouncementLabel.BackColor = System.Drawing.Color.Transparent;
+            this.WinnerAnnouncementLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.WinnerAnnouncementLabel.Location = new System.Drawing.Point(548, 175);
+            this.WinnerAnnouncementLabel.MaximumSize = new System.Drawing.Size(500, 500);
+            this.WinnerAnnouncementLabel.Name = "WinnerAnnouncementLabel";
+            this.WinnerAnnouncementLabel.Size = new System.Drawing.Size(306, 64);
+            this.WinnerAnnouncementLabel.TabIndex = 63;
+            this.WinnerAnnouncementLabel.Text = "The winner is ";
+            this.WinnerAnnouncementLabel.Visible = false;
+            // 
+            // PlayAgainButton
+            // 
+            this.PlayAgainButton.Location = new System.Drawing.Point(11, 601);
+            this.PlayAgainButton.Name = "PlayAgainButton";
+            this.PlayAgainButton.Size = new System.Drawing.Size(98, 31);
+            this.PlayAgainButton.TabIndex = 64;
+            this.PlayAgainButton.Text = "Play again";
+            this.PlayAgainButton.UseVisualStyleBackColor = true;
+            this.PlayAgainButton.Visible = false;
+            this.PlayAgainButton.Click += new System.EventHandler(this.PlayAgainButton_Click);
+            // 
+            // View_Rules_Button
+            // 
+            this.View_Rules_Button.Location = new System.Drawing.Point(1298, 601);
+            this.View_Rules_Button.Name = "View_Rules_Button";
+            this.View_Rules_Button.Size = new System.Drawing.Size(98, 31);
+            this.View_Rules_Button.TabIndex = 65;
+            this.View_Rules_Button.Text = "View rules";
+            this.View_Rules_Button.UseVisualStyleBackColor = true;
+            this.View_Rules_Button.Click += new System.EventHandler(this.View_Rules_Button_Click);
             // 
             // Player3Card2
             // 
@@ -635,174 +792,15 @@
             this.PokerTable.TabIndex = 0;
             this.PokerTable.TabStop = false;
             // 
-            // TableBetLabel
-            // 
-            this.TableBetLabel.BackColor = System.Drawing.Color.Transparent;
-            this.TableBetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.TableBetLabel.Location = new System.Drawing.Point(884, 256);
-            this.TableBetLabel.MaximumSize = new System.Drawing.Size(500, 500);
-            this.TableBetLabel.Name = "TableBetLabel";
-            this.TableBetLabel.Size = new System.Drawing.Size(76, 64);
-            this.TableBetLabel.TabIndex = 50;
-            this.TableBetLabel.Text = "Bet 5K to enter";
-            this.TableBetLabel.Visible = false;
-            // 
-            // Player1Bet
-            // 
-            this.Player1Bet.BackColor = System.Drawing.Color.Transparent;
-            this.Player1Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player1Bet.Location = new System.Drawing.Point(669, 329);
-            this.Player1Bet.MaximumSize = new System.Drawing.Size(500, 500);
-            this.Player1Bet.Name = "Player1Bet";
-            this.Player1Bet.Size = new System.Drawing.Size(60, 64);
-            this.Player1Bet.TabIndex = 51;
-            // 
-            // Player2Bet
-            // 
-            this.Player2Bet.BackColor = System.Drawing.Color.Transparent;
-            this.Player2Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player2Bet.Location = new System.Drawing.Point(954, 175);
-            this.Player2Bet.MaximumSize = new System.Drawing.Size(500, 500);
-            this.Player2Bet.Name = "Player2Bet";
-            this.Player2Bet.Size = new System.Drawing.Size(60, 64);
-            this.Player2Bet.TabIndex = 52;
-            // 
-            // Player4Bet
-            // 
-            this.Player4Bet.BackColor = System.Drawing.Color.Transparent;
-            this.Player4Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player4Bet.Location = new System.Drawing.Point(954, 329);
-            this.Player4Bet.MaximumSize = new System.Drawing.Size(500, 500);
-            this.Player4Bet.Name = "Player4Bet";
-            this.Player4Bet.Size = new System.Drawing.Size(60, 64);
-            this.Player4Bet.TabIndex = 53;
-            // 
-            // Player6Bet
-            // 
-            this.Player6Bet.BackColor = System.Drawing.Color.Transparent;
-            this.Player6Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player6Bet.Location = new System.Drawing.Point(399, 175);
-            this.Player6Bet.MaximumSize = new System.Drawing.Size(500, 500);
-            this.Player6Bet.Name = "Player6Bet";
-            this.Player6Bet.Size = new System.Drawing.Size(60, 64);
-            this.Player6Bet.TabIndex = 54;
-            // 
-            // Player5Bet
-            // 
-            this.Player5Bet.BackColor = System.Drawing.Color.Transparent;
-            this.Player5Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player5Bet.Location = new System.Drawing.Point(1114, 255);
-            this.Player5Bet.MaximumSize = new System.Drawing.Size(500, 500);
-            this.Player5Bet.Name = "Player5Bet";
-            this.Player5Bet.Size = new System.Drawing.Size(60, 64);
-            this.Player5Bet.TabIndex = 55;
-            // 
-            // Player7Bet
-            // 
-            this.Player7Bet.BackColor = System.Drawing.Color.Transparent;
-            this.Player7Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player7Bet.Location = new System.Drawing.Point(399, 329);
-            this.Player7Bet.MaximumSize = new System.Drawing.Size(500, 500);
-            this.Player7Bet.Name = "Player7Bet";
-            this.Player7Bet.Size = new System.Drawing.Size(60, 64);
-            this.Player7Bet.TabIndex = 56;
-            this.Player7Bet.Visible = false;
-            // 
-            // Player3Bet
-            // 
-            this.Player3Bet.BackColor = System.Drawing.Color.Transparent;
-            this.Player3Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Player3Bet.Location = new System.Drawing.Point(232, 253);
-            this.Player3Bet.MaximumSize = new System.Drawing.Size(500, 500);
-            this.Player3Bet.Name = "Player3Bet";
-            this.Player3Bet.Size = new System.Drawing.Size(60, 64);
-            this.Player3Bet.TabIndex = 57;
-            // 
-            // RaiseInsertBox
-            // 
-            this.RaiseInsertBox.Location = new System.Drawing.Point(860, 626);
-            this.RaiseInsertBox.Name = "RaiseInsertBox";
-            this.RaiseInsertBox.Size = new System.Drawing.Size(100, 20);
-            this.RaiseInsertBox.TabIndex = 58;
-            this.RaiseInsertBox.Visible = false;
-            // 
-            // ConfirmRaiseButton
-            // 
-            this.ConfirmRaiseButton.Location = new System.Drawing.Point(966, 620);
-            this.ConfirmRaiseButton.Name = "ConfirmRaiseButton";
-            this.ConfirmRaiseButton.Size = new System.Drawing.Size(98, 31);
-            this.ConfirmRaiseButton.TabIndex = 59;
-            this.ConfirmRaiseButton.Text = "Confirm Raise";
-            this.ConfirmRaiseButton.UseVisualStyleBackColor = true;
-            this.ConfirmRaiseButton.Visible = false;
-            this.ConfirmRaiseButton.Click += new System.EventHandler(this.ConfirmRaiseButton_Click);
-            // 
-            // LeaveButton
-            // 
-            this.LeaveButton.Location = new System.Drawing.Point(11, 23);
-            this.LeaveButton.Name = "LeaveButton";
-            this.LeaveButton.Size = new System.Drawing.Size(98, 31);
-            this.LeaveButton.TabIndex = 60;
-            this.LeaveButton.Text = "Leave Match";
-            this.LeaveButton.UseVisualStyleBackColor = true;
-            this.LeaveButton.Click += new System.EventHandler(this.LeaveButton_Click);
-            // 
-            // MinRaiseLabel
-            // 
-            this.MinRaiseLabel.BackColor = System.Drawing.Color.Transparent;
-            this.MinRaiseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.MinRaiseLabel.Location = new System.Drawing.Point(860, 604);
-            this.MinRaiseLabel.MaximumSize = new System.Drawing.Size(500, 500);
-            this.MinRaiseLabel.Name = "MinRaiseLabel";
-            this.MinRaiseLabel.Size = new System.Drawing.Size(100, 18);
-            this.MinRaiseLabel.TabIndex = 61;
-            this.MinRaiseLabel.Text = "Min raise is 5K";
-            this.MinRaiseLabel.Visible = false;
-            // 
-            // TimeForTurnLabel
-            // 
-            this.TimeForTurnLabel.BackColor = System.Drawing.Color.Transparent;
-            this.TimeForTurnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.TimeForTurnLabel.Location = new System.Drawing.Point(496, 619);
-            this.TimeForTurnLabel.MaximumSize = new System.Drawing.Size(500, 500);
-            this.TimeForTurnLabel.Name = "TimeForTurnLabel";
-            this.TimeForTurnLabel.Size = new System.Drawing.Size(46, 32);
-            this.TimeForTurnLabel.TabIndex = 62;
-            this.TimeForTurnLabel.Text = "30";
-            this.TimeForTurnLabel.Visible = false;
-            // 
-            // WinnerAnnouncementLabel
-            // 
-            this.WinnerAnnouncementLabel.BackColor = System.Drawing.Color.Transparent;
-            this.WinnerAnnouncementLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.WinnerAnnouncementLabel.Location = new System.Drawing.Point(548, 175);
-            this.WinnerAnnouncementLabel.MaximumSize = new System.Drawing.Size(500, 500);
-            this.WinnerAnnouncementLabel.Name = "WinnerAnnouncementLabel";
-            this.WinnerAnnouncementLabel.Size = new System.Drawing.Size(306, 64);
-            this.WinnerAnnouncementLabel.TabIndex = 63;
-            this.WinnerAnnouncementLabel.Text = "The winner is ";
-            this.WinnerAnnouncementLabel.Visible = false;
-            // 
-            // PlayAgainButton
-            // 
-            this.PlayAgainButton.Location = new System.Drawing.Point(11, 601);
-            this.PlayAgainButton.Name = "PlayAgainButton";
-            this.PlayAgainButton.Size = new System.Drawing.Size(98, 31);
-            this.PlayAgainButton.TabIndex = 64;
-            this.PlayAgainButton.Text = "Play again";
-            this.PlayAgainButton.UseVisualStyleBackColor = true;
-            this.PlayAgainButton.Visible = false;
-            this.PlayAgainButton.Click += new System.EventHandler(this.PlayAgainButton_Click);
-            // 
             // Game_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1408, 663);
+            this.Controls.Add(this.View_Rules_Button);
             this.Controls.Add(this.PlayAgainButton);
             this.Controls.Add(this.WinnerAnnouncementLabel);
-            this.Controls.Add(this.TimeForTurnLabel);
             this.Controls.Add(this.MinRaiseLabel);
             this.Controls.Add(this.LeaveButton);
             this.Controls.Add(this.ConfirmRaiseButton);
@@ -962,8 +960,8 @@
         private System.Windows.Forms.Button ConfirmRaiseButton;
         private System.Windows.Forms.Button LeaveButton;
         private System.Windows.Forms.Label MinRaiseLabel;
-        private System.Windows.Forms.Label TimeForTurnLabel;
         private System.Windows.Forms.Label WinnerAnnouncementLabel;
         private System.Windows.Forms.Button PlayAgainButton;
+        private System.Windows.Forms.Button View_Rules_Button;
     }
 }

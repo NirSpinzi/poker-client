@@ -159,14 +159,6 @@ namespace projuct2
                         {
                             Game.Invoke((Action)delegate { Game.Switch(incommingData); });
                         }
-                        else if (incommingData.StartsWith("in_game_timer"))
-                        {
-                            Game.Invoke((Action)delegate { Game.GameTimerTick(incommingData); });
-                        }
-                        else if (incommingData.StartsWith("kick_next_time"))
-                        {
-                            MessageBox.Show("Next time you fail to click an action in 30 seconds you will be kicked out of the lobby.");
-                        }
                         else if (incommingData.StartsWith("winner"))
                         {
                             Game.Invoke((Action)delegate { Game.WinnerAnnouncement(incommingData); });

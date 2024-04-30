@@ -19,7 +19,7 @@ namespace projuct2
         }
         private void confirm_button_Click(object sender, EventArgs e)
         {
-            Tikshoret.SendMessage("reset:"+email_password_reset_box.Text);
+            Tikshoret.SendMessage("reset:" + email_password_reset_box.Text);
         }
         public void PasswordReseter(string info)
         {
@@ -55,15 +55,14 @@ namespace projuct2
                 // Create a new instance of Form2 and pass the client object to it.
                 Tikshoret.login = new Login_Form();
                 this.Invoke(new Action(() => Tikshoret.login.ShowDialog()));
+                Close();
             }
-            else MessageBox.Show("Password does not meat the requirements.");
+            else MessageBox.Show("Password does not meet the requirements.");
         }
-
         private void email_code_confirmation_button_Click(object sender, EventArgs e)
         {
             Tikshoret.SendMessage("reset:vercode:" + email_code_textbox.Text);
         }
-
         private void confirm_new_password_button_Click(object sender, EventArgs e)
         {
             Tikshoret.SendMessage("reset:password:"+ password_reset_box.Text);

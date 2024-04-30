@@ -73,8 +73,8 @@
             this.email_verify_label.Name = "email_verify_label";
             this.email_verify_label.Size = new System.Drawing.Size(299, 75);
             this.email_verify_label.TabIndex = 4;
-            this.email_verify_label.Text = "We have sent an email with a verification code to your address. pleas enter the c" +
-    "ode ";
+            this.email_verify_label.Text = "We have sent an email with a verification code to your address. please enter the " +
+    "code ";
             this.email_verify_label.Visible = false;
             // 
             // email_code_textbox

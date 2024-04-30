@@ -10,14 +10,24 @@ using System.Windows.Forms;
 
 namespace projuct2
 {
-    public partial class poker_hands_form : Form
+    public partial class Rules_Form : Form
     {
-        public poker_hands_form()
+        public Rules_Form()
         {
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }

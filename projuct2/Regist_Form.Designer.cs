@@ -36,8 +36,9 @@
             this.password_box2 = new System.Windows.Forms.TextBox();
             this.email_box2 = new System.Windows.Forms.TextBox();
             this.registar2_button = new System.Windows.Forms.Button();
-            this.back_button = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.Back_Picture_Button = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Back_Picture_Button)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -124,18 +125,6 @@
             this.registar2_button.UseVisualStyleBackColor = true;
             this.registar2_button.Click += new System.EventHandler(this.registar2_button_Click);
             // 
-            // back_button
-            // 
-            this.back_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.back_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.back_button.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.back_button.Location = new System.Drawing.Point(12, 12);
-            this.back_button.Name = "back_button";
-            this.back_button.Size = new System.Drawing.Size(44, 44);
-            this.back_button.TabIndex = 11;
-            this.back_button.UseVisualStyleBackColor = true;
-            this.back_button.Click += new System.EventHandler(this.back_button_Click);
-            // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -149,13 +138,24 @@
     "d at least 1 digit. Username must be at least 3 letters long and nither must con" +
     "tain parenrthesis or equals sign.";
             // 
+            // Back_Picture_Button
+            // 
+            this.Back_Picture_Button.Image = global::projuct2.Properties.Resources.Back_arrow;
+            this.Back_Picture_Button.Location = new System.Drawing.Point(12, 12);
+            this.Back_Picture_Button.Name = "Back_Picture_Button";
+            this.Back_Picture_Button.Size = new System.Drawing.Size(47, 44);
+            this.Back_Picture_Button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Back_Picture_Button.TabIndex = 13;
+            this.Back_Picture_Button.TabStop = false;
+            this.Back_Picture_Button.Click += new System.EventHandler(this.Back_Picture_Button_Click);
+            // 
             // Regist_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1035, 626);
+            this.Controls.Add(this.Back_Picture_Button);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.back_button);
             this.Controls.Add(this.registar2_button);
             this.Controls.Add(this.email_box2);
             this.Controls.Add(this.password_box2);
@@ -166,6 +166,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Regist_Form";
             this.Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)(this.Back_Picture_Button)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,7 +182,7 @@
         private System.Windows.Forms.TextBox password_box2;
         private System.Windows.Forms.TextBox email_box2;
         private System.Windows.Forms.Button registar2_button;
-        private System.Windows.Forms.Button back_button;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox Back_Picture_Button;
     }
 }

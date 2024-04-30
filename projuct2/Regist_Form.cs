@@ -6,12 +6,6 @@ namespace projuct2
 {
     public partial class Regist_Form : Form
     {
-        TcpClient client;//client Socket
-        byte[] data;//store the data that send to & from the server
-        /// <summary>
-        /// Initializes a new instance of the Form2 class with a pre-existing TcpClient object.
-        /// </summary>
-        /// <param name="Client">The TcpClient object representing the client socket.</param>
         public Regist_Form()
         {
             InitializeComponent();
@@ -53,24 +47,25 @@ namespace projuct2
                     // Create a new instance of Form2 and pass the client object to it.
                     Tikshoret.email = new Email_Ver_Form();
                     this.Invoke(new Action(() => Tikshoret.email.ShowDialog()));
+                    Close();
                 }
                 else
                     // Display an error message to the user with the server's response message
                     MessageBox.Show(parts[1]);
             }
         }
-        private void back_button_Click(object sender, EventArgs e)
+        private void username_box2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void Back_Picture_Button_Click(object sender, EventArgs e)
         {
             // Create a new instance of Form1 and display it to the user
             Hide();
             // Create a new instance of Form2 and pass the client object to it.
             Tikshoret.login = new Login_Form();
             this.Invoke(new Action(() => Tikshoret.login.ShowDialog()));
-        }
-
-        private void username_box2_TextChanged(object sender, EventArgs e)
-        {
-
+            Close();
         }
     }
 }
