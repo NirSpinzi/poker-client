@@ -4,13 +4,24 @@ using System.Windows.Forms;
 
 namespace projuct2
 {
+    /// <summary>
+    /// Represents the registration form in the application.
+    /// </summary>
     public partial class Regist_Form : Form
     {
+        /// <summary>
+        /// Initializes a new instance of the Regist_Form class. Starts listening to messeges from the server.
+        /// </summary>
         public Regist_Form()
         {
             InitializeComponent();
             Tikshoret.BeginRead();
         }
+        /// <summary>
+        /// Sends the server the registration details of the user - Regist reqeust.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void registar2_button_Click(object sender, EventArgs e)
         {
             // Retrieve the entered username and password
@@ -20,6 +31,10 @@ namespace projuct2
             // Send a registration request message to the server with the entered username and password
             Tikshoret.SendMessage("regist:" + username + ":" + password + ":" + email);
         }
+        /// <summary>
+        /// Handels the regist request answer of the server.
+        /// </summary>
+        /// <param name="info">Server's answer</param>
         public void RegistRequest(string info)
         {
             string[] parts = info.Split(':');
@@ -42,10 +57,8 @@ namespace projuct2
             {
                 if (parts[1].Equals("ok"))
                 {
-                    // Create a new instance of Form1 and display it to the user
                     Hide();
-                    // Create a new instance of Form2 and pass the client object to it.
-                    Tikshoret.email = new Email_Ver_Form();
+                    Tikshoret.email = new Email_Ver_Form(); // Transfer user to email validation form.
                     this.Invoke(new Action(() => Tikshoret.email.ShowDialog()));
                     Close();
                 }
@@ -58,11 +71,14 @@ namespace projuct2
         {
 
         }
+        /// <summary>
+        /// Returns the user back to the login form. Closes Regist Form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Back_Picture_Button_Click(object sender, EventArgs e)
         {
-            // Create a new instance of Form1 and display it to the user
             Hide();
-            // Create a new instance of Form2 and pass the client object to it.
             Tikshoret.login = new Login_Form();
             this.Invoke(new Action(() => Tikshoret.login.ShowDialog()));
             Close();

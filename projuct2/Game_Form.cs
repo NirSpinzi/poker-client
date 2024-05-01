@@ -12,11 +12,21 @@ using System.Windows.Forms;
 
 namespace projuct2
 {
+    /// <summary>
+    /// Represents the game form where poker game actions are displayed.
+    /// </summary>
     public partial class Game_Form : Form
     {
+        // The username of the client
         string username;
+        // The string path of the picture folder.
         string PicturePath = @"D:\\projects\\poker-client\\projuct2\\picFolder\\";
+        // A flag indicating wether the client is the host or not.
         bool isHost = false;
+        /// <summary>
+        /// Initializes a new instance of the Game_Form class. Also asks the server wether he is the host - isHost Request.
+        /// </summary>
+        /// <param name="info">Information about the user.</param>
         public Game_Form(string info)
         {
             string[] parts = info.Split(':');
@@ -36,6 +46,10 @@ namespace projuct2
             Your_Name_label.Text = parts[0];
             Player1Money.Text = parts[1] + "$";
         }
+        /// <summary>
+        /// Handels the isHost request answer of the server.
+        /// </summary>
+        /// <param name="info">Server's answer</param>
         public void IsHost(string info)
         {
             if (info.Equals("true"))
@@ -45,11 +59,20 @@ namespace projuct2
                 isHost = true;
             }
         }
+        /// <summary>
+        /// Opens the form to see all the hand strengths of poker.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void poker_hands_button_Click(object sender, EventArgs e)
         {
             Form form= new poker_hands_form();
             form.Show();
         }
+        /// <summary>
+        /// Handels the server telling the client that another player is joining the lobby.
+        /// </summary>
+        /// <param name="info">Info from the server about the joining player</param>
         public void JoinGame(string info)
         {
             string[] parts = info.Split(':');
@@ -120,14 +143,23 @@ namespace projuct2
                 }
             }
         }
+        /// <summary>
+        /// Sends the server a request to start the game - start game request.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void start_game_button_Click(object sender, EventArgs e)
         {
             Tikshoret.SendMessage("game:start");
         }
+        /// <summary>
+        /// Handels the server's answer to the start game request.
+        /// </summary>
+        /// <param name="info">Server's answer</param>
         public void startGame(string info)
         {
             string[] parts = info.Split(':');
-            if (parts[2].Equals("ok"))
+            if (parts[2].Equals("ok")) // Server approves of the reqeust - start the game.
             {
                 resetTable();
                 TableBetLabel.Visible = true;
@@ -164,7 +196,7 @@ namespace projuct2
                     Player7Card1.Visible = true;
                     Player7Card2.Visible = true;
                 }
-            }
+            } // Server does not approve because there are not enough players.
             else MessageBox.Show("You need at least 2 players to start a game");
         }
         private void pictureBox8_Click(object sender, EventArgs e)
@@ -175,6 +207,11 @@ namespace projuct2
         {
 
         }
+        /// <summary>
+        /// Enabels the user to raise by making the insert raise box and the confirm raise button visible.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RaiseButton_Click(object sender, EventArgs e)
         {
             if (RaiseInsertBox.Visible)
@@ -190,6 +227,11 @@ namespace projuct2
                 MinRaiseLabel.Visible = true;
             }
         }
+        /// <summary>
+        /// Sends the server a request to call - call request. Ends your turn.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CallButton_Click(object sender, EventArgs e)
         {
             Tikshoret.SendMessage("call:");
@@ -199,6 +241,11 @@ namespace projuct2
             ConfirmRaiseButton.Visible = false;
             RaiseInsertBox.Visible = false; ;
         }
+        /// <summary>
+        /// Sends the server a fold request. Ends your turn.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FoldButton_Click(object sender, EventArgs e)
         {
             Tikshoret.SendMessage("fold:");
@@ -208,6 +255,10 @@ namespace projuct2
             ConfirmRaiseButton.Visible = false;
             RaiseInsertBox.Visible = false; ;
         }
+        /// <summary>
+        /// Handels the server's answer to the call request.
+        /// </summary>
+        /// <param name="info">Server's answer</param>
         public void CallBet(string info)
         {
             string[]parts = info.Split(':');
@@ -254,6 +305,10 @@ namespace projuct2
                 }
             }
         }
+        /// <summary>
+        /// Handels the server's answer to the fold request.
+        /// </summary>
+        /// <param name="info">Server's answer</param>
         public void FoldBet(string info)
         {
             string[] parts = info.Split(':');
@@ -298,6 +353,10 @@ namespace projuct2
                 }
             }
         }
+        /// <summary>
+        /// Handels the server's answer to the raise request.
+        /// </summary>
+        /// <param name="info">Server's answer</param>
         public void RaiseBet(string info)
         {
             string[] parts = info.Split(':');
@@ -360,12 +419,19 @@ namespace projuct2
                 }
             }
         }
+        /// <summary>
+        /// Enables you to play on your turn.
+        /// </summary>
         public void RunTurn()
         {
             RaiseButton.Enabled = true;
             CallButton.Enabled = true;
             FoldButton.Enabled = true;
         }
+        /// <summary>
+        /// Handels the server's message to go to the next round.
+        /// </summary>
+        /// <param name="info">info about the current round</param>
         public void RoundEnd(string info)
         {
             string[] parts = info.Split(':');
@@ -397,10 +463,20 @@ namespace projuct2
         {
 
         }
+        /// <summary>
+        /// Sends the number you inserted in the raise insert box to the server for a raise request.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ConfirmRaiseButton_Click(object sender, EventArgs e)
         {
             Tikshoret.SendMessage("raise:"+ RaiseInsertBox.Text);
         }
+        /// <summary>
+        /// Sends the server a message telling it you're leaving the lobby and transfers you back to the Game menu form. Closes current form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LeaveButton_Click(object sender, EventArgs e)
         {
             Tikshoret.SendMessage("leave:");
@@ -410,6 +486,10 @@ namespace projuct2
             this.Invoke(new Action(() => Tikshoret.GameMenu.ShowDialog()));
             Close();
         }
+        /// <summary>
+        /// Handels the server's message about the rearrangements of the sits when a player leaves the lobby.
+        /// </summary>
+        /// <param name="info">Info about which player left</param>
         public void Switch(string info)
         {
             string[] parts = info.Split(':');
@@ -465,6 +545,10 @@ namespace projuct2
                 Player7Name.Text = "";
             }
         }
+        /// <summary>
+        /// Handels the server's message about the winner of the game or the players who tied.
+        /// </summary>
+        /// <param name="info">Info about which player won or which players tied</param>
         public void WinnerAnnouncement(string info)
         {
             string[] parts = info.Split(':');
@@ -472,23 +556,23 @@ namespace projuct2
             {
                 switch (parts[1])
                 {
-                    case "2":
+                    case "2": // a tie between 2 players
                         {
-                            WinnerAnnouncementLabel.Text = "A tie between " + parts[2] + " and " + parts[4];
+                            WinnerAnnouncementLabel.Text = "A tie between " + parts[2] + " and " + parts[4];                           
                             break;
                         }
-                    case "3":
+                    case "3":// a tie between 3 players
                         {
                             WinnerAnnouncementLabel.Text = "A tie between " + parts[2] + ", " + parts[4] + " and " + parts[6];
                             break;
                         }
-                    case "4":
+                    case "4":// a tie between 4 players
                         {
                             WinnerAnnouncementLabel.Text = "A tie between " + parts[2] + ", " + parts[4] + ", " + parts[6] + " and " + parts[8];
                             break;
                         }
                 }
-            }
+            } // a single winner.
             else WinnerAnnouncementLabel.Text = "The Winner is " + parts[1];
             WinnerAnnouncementLabel.Visible = true;
             CallButton.Enabled = false;
@@ -504,6 +588,10 @@ namespace projuct2
                 PlayAgainButton.Enabled = true;
             }
         }
+        /// <summary>
+        /// Handels the server's message about the money of the winner of the game or the players who tied.
+        /// </summary>
+        /// <param name="info">Info about the money of player who won or the players that tied</param>
         public void UpdateWinnerMoney(string info)
         {
             string[] parts = info.Split(':');
@@ -511,20 +599,20 @@ namespace projuct2
             {
                 switch (parts[1])
                 {
-                    case "2":
+                    case "2": // a tie between 2 players
                         {
                             UpdateMoney(parts[2], parts[3]);
                             UpdateMoney(parts[4], parts[5]);
                             break;
                         }
-                    case "3":
+                    case "3": // a tie between 3 players
                         {
                             UpdateMoney(parts[2], parts[3]);
                             UpdateMoney(parts[4], parts[5]);
                             UpdateMoney(parts[6], parts[7]);
                             break;
                         }
-                    case "4":
+                    case "4": // a tie between 4 players
                         {
                             UpdateMoney(parts[2], parts[3]);
                             UpdateMoney(parts[4], parts[5]);
@@ -533,9 +621,14 @@ namespace projuct2
                             break;
                         }
                 }
-            }
+            } // a single winner.
             else UpdateMoney(parts[1], parts[2]);
         }
+        /// <summary>
+        /// Updates the amount of money a player has.
+        /// </summary>
+        /// <param name="username">The username of the player</param>
+        /// <param name="money">The money you want to set to that player</param>
         private void UpdateMoney(string username, string money)
         {
             if (username.Equals(Your_Name_label.Text))
@@ -567,10 +660,14 @@ namespace projuct2
                 Player7Money.Text = money + "$";
             }
         }
+        /// <summary>
+        /// Handels the server's message about which cards to reveal at the end of the game and what are those cards. Reveals the cards.
+        /// </summary>
+        /// <param name="info">info from the server about the cards to reveal</param>
         public void RevealCards(string info)
         {
             string[] parts = info.Split(':');
-            if (parts[6].Equals(username))
+            if (parts[6].Equals(username)) // You already see your own cards.
             {
                 return;
             }
@@ -612,10 +709,19 @@ namespace projuct2
                 }
             }
         }
+        /// <summary>
+        /// Sends the server a  request to Play again.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PlayAgainButton_Click(object sender, EventArgs e)
         {
             Tikshoret.SendMessage("new_game:");
         }
+        /// <summary>
+        /// Handels the server's approval of the play again request. Resets the table to the start of the game state.
+        /// </summary>
+        /// <param name="info">info the player's cards</param>
         public void PlayAgain(string info)
         {
             PlayAgainButton.Enabled = false;
@@ -653,6 +759,9 @@ namespace projuct2
                 Player7Card2.Visible = true;
             }
         }
+        /// <summary>
+        /// Resets the table for the start of the game.
+        /// </summary>
         private void resetTable()
         {
             Player1Bet.Text = "";
@@ -681,6 +790,10 @@ namespace projuct2
             Player7Card1.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
             Player7Card2.Image = Image.FromFile(PicturePath + "bakc_scard34.jpg");
         }
+        /// <summary>
+        /// Handels the server's message about which player left and removes that player from the table.
+        /// </summary>
+        /// <param name="info">info about the player who left.</param>
         public void PlayerLeft(string info)
         {
             string[] parts = info.Split(':');
@@ -752,6 +865,11 @@ namespace projuct2
         {
 
         }
+        /// <summary>
+        /// Opens the Rules form where you read all of the rules to Poker Texas Hold'em.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void View_Rules_Button_Click(object sender, EventArgs e)
         {
             Form form = new Rules_Form();

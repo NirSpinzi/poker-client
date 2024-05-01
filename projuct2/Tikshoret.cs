@@ -10,24 +10,44 @@ using System.Windows.Forms;
 
 namespace projuct2
 {
+    /// <summary>
+    /// Represents the core functionality for managing client-server communication.
+    /// </summary>
     internal class Tikshoret
     {
+        // RSA service provider for encryption
         private static RSAServiceProvider Rsa;
+        // Public key of the server
         private static string ServerPublicKey;
+        // Private key of the client
         private static string PrivateKey;
+        // Port number for the TCP connection
         private static int portNo = 1500;
+        // IP address of the server
         private const string ipAddress = "127.0.0.1";
-        public static TcpClient client;//client Socket
-        private static byte[] data;//store the data that send to & from the server
+        // Client socket for communication with the server
+        public static TcpClient client;
+        // Data buffer for sending and receiving messages
+        private static byte[] data;
+        // Symmetric key for encryption
         public static string SymmetricKey;
+        // Reference to the login form
         public static Login_Form login;
+        // Reference to the registration form
         public static Regist_Form regist;
+        // Reference to the email verification form
         public static Email_Ver_Form email;
+        // Reference to the password reset form
         public static Password_Reset_Form password_;
+        // Reference to the game menu form
         public static Game_Menu_Form GameMenu;
+        // Reference to the game form
         public static Game_Form Game;
+        // Flag indicating if the TCP client is connected to the server
         static public bool _isTcpClientConnected = false;
-
+        /// <summary>
+        /// Connects the client to the server using TCP.
+        /// </summary>
         public static void connect()
         {
             client = new TcpClient();
@@ -39,10 +59,17 @@ namespace projuct2
             PrivateKey = Rsa.GetPrivateKey();
             SendMessage("PogurC" + Rsa.GetPublicKey());
         }
+        /// <summary>
+        /// Initiates reading data from the server.
+        /// </summary>
         public static void BeginRead()
         {
             client.GetStream().BeginRead(data,0,System.Convert.ToInt32(client.ReceiveBufferSize),ReceiveMessage,null);
         }
+        /// <summary>
+        /// Handles the asynchronous reception of messages from the server - passes the messege to the form that has the appropriate response function to handel it.
+        /// </summary>
+        /// <param name = "ar" > The asynchronous result containing state information about the receive operation.</param>
         private static void ReceiveMessage(IAsyncResult ar)
         {
             try
@@ -64,9 +91,9 @@ namespace projuct2
                     if (incommingData.StartsWith("PogurS"))
                     {
                         incommingData = incommingData.Substring(6);
-                        ServerPublicKey = incommingData; //maybe i should make the publickey as bytes and not string and then do the switch to string just after that...
+                        ServerPublicKey = incommingData;
                     }
-                    else if (incommingData.StartsWith("YavulS"))//gets Symmetrical Key
+                    else if (incommingData.StartsWith("YavulS")) //gets Symmetrical Key
                     {
                         incommingData = incommingData.Substring(6);
                         incommingData = Rsa.Decrypt(incommingData, PrivateKey);
@@ -182,16 +209,16 @@ namespace projuct2
             {
                 MessageBox.Show(ex.ToString());
             }
-        }// end ReceiveMessage
+        }
         /// <summary>
-        /// convert the message to ASCII code send message to the server
+        /// Sends a message to the server.
         /// </summary>
-        /// <param name="message">the data to send</param>
+        /// <param name="message">The message to send.</param>
         public static void SendMessage(string message)
         {
             try
             {
-                if (!(message.StartsWith("Pogur")))
+                if (!(message.StartsWith("Pogur"))) // Encrypt the message.
                 {
                     byte[] Key = Encoding.UTF8.GetBytes(SymmetricKey);
                     byte[] IV = new byte[16];
@@ -203,7 +230,7 @@ namespace projuct2
 
                 // send the text
                 ns.Write(data, 0, data.Length);
-                //ns.Flush();
+                ns.Flush();
             }
             catch (Exception ex)
             {
@@ -211,13 +238,18 @@ namespace projuct2
             }
         }
     }
+    /// <summary>
+    /// Provides RSA encryption services.
+    /// </summary>
     internal class RSAServiceProvider
     {
         private string PrivateKey;
         private string PublicKey;
         private UnicodeEncoding Encoder;
         private RSACryptoServiceProvider RSA;
-
+        /// <summary>
+        /// Initializes a new instance of the RSAServiceProvider class.
+        /// </summary>
         public RSAServiceProvider()
         {
             Encoder = new UnicodeEncoding();
@@ -263,8 +295,18 @@ namespace projuct2
             return Encoder.GetString(DecryptedByte);
         }
     }
+    /// <summary>
+    /// Provides AES encryption and decryption services.
+    /// </summary>
     internal class AESServiceProvider
     {
+        /// <summary>
+        /// Encrypts the specified plain text using AES encryption.
+        /// </summary>
+        /// <param name="plainText">The plain text to encrypt.</param>
+        /// <param name="Key">The encryption key.</param>
+        /// <param name="IV">The initialization vector.</param>
+        /// <returns>The encrypted text.</returns>
         public static string Encrypt(string plainText, byte[] Key, byte[] IV)
         {
             // Check arguments.
@@ -304,6 +346,13 @@ namespace projuct2
             // Return the encrypted string from the memory stream.
             return encrypted;
         }
+        /// <summary>
+        /// Decrypts the specified cipher text using AES decryption.
+        /// </summary>
+        /// <param name="cipherText">The cipher text to decrypt.</param>
+        /// <param name="Key">The decryption key.</param>
+        /// <param name="IV">The initialization vector.</param>
+        /// <returns>The decrypted text.</returns>
         public static string Decrypt(string cipherText, byte[] Key, byte[] IV)
         {
             // Check arguments.
@@ -343,7 +392,6 @@ namespace projuct2
                     }
                 }
             }
-
             return plaintext;
         }
     }

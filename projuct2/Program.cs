@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace projuct2
 {
+    /// <summary>
+    /// Contains the main entry point for the application.
+    /// </summary>
     internal static class Program
     {
         /// <summary>

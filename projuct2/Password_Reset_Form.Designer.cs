@@ -64,7 +64,7 @@
             this.confirm_button.TabIndex = 2;
             this.confirm_button.Text = "confirm";
             this.confirm_button.UseVisualStyleBackColor = true;
-            this.confirm_button.Click += new System.EventHandler(this.confirm_button_Click);
+            this.confirm_button.Click += new System.EventHandler(this.confirm_Email_button_Click);
             // 
             // email_verify_label
             // 

@@ -6,13 +6,17 @@ using System.Windows.Forms;
 namespace projuct2
 {
     /// <summary>
-    /// Represents the main form of the application.
+    /// Represents the login form of the application.
     /// </summary>
     public partial class Login_Form : Form
     {
-        // Fields
+        // The random captcha number.
         int captchaID;
+        // The captcha image file path.
         string CaptchaPath = @"D:\\projects\\poker-client\\projuct2\\picFolder\\CaptchaImage";
+        /// <summary>
+        /// Represents the login form of the application. Initilizes the connection to the server and begins listening to messeges from the server.
+        /// </summary>
         public Login_Form()
         {
             InitializeComponent();
@@ -23,6 +27,11 @@ namespace projuct2
             }
             else Tikshoret.BeginRead();
         }
+        /// <summary>
+        /// Handles the click event of the login button. Sends the server the login data and the captcha answer - login request.
+        /// </summary>
+        /// <param name="sender">The sender object.</param>
+        /// <param name="e">The event arguments.</param>
         private void Login_button_Click(object sender, EventArgs e)
         {
             if (!Capthca_checkbox.Checked) 
@@ -38,10 +47,10 @@ namespace projuct2
             Tikshoret.SendMessage("login:" + username + ":" + password + ":" + captchaID + ":" + CaptchaTextBox.Text);
         }
         /// <summary>
-        /// Reads a message from the server using the established TCP connection.
+        /// Handles the click event of the registration button. Transfers the user to the Regist form and closes the login form.
         /// </summary>
-        /// <returns>The message received from the server as a string.</returns>
-
+        /// <param name="sender">The sender object.</param>
+        /// <param name="e">The event arguments.</param>
         private void Regist_button_1_Click(object sender, EventArgs e)
         {
             Hide();
@@ -50,16 +59,18 @@ namespace projuct2
             this.Invoke(new Action(() => Tikshoret.regist.ShowDialog()));
             Close();
         }
-
         private void username_box_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void password_box_TextChanged(object sender, EventArgs e)
         {
 
         }
+        /// <summary>
+        /// Handles Displaying the time the user has left of their timeout.
+        /// </summary>
+        /// <param name="info"></param>
         public void Timeout(string info)
         {
             string[] parts = info.Split(':');
@@ -71,12 +82,20 @@ namespace projuct2
                 Login_button.Enabled = true;
             }
         }
+        /// <summary>
+        /// Sets the captcha image to match the one sent by the server.
+        /// </summary>
+        /// <param name="info">A random Captcha number sent by the server</param>
         public void SetCaptchaImage(string info)
         {
             String[] parts = info.Split(':');
             captchaID = int.Parse(parts[1]);
             CaptchaImageBox.Image = Image.FromFile(CaptchaPath + parts[1] + ".png");
         }
+        /// <summary>
+        /// Handels the login request answer of the server.
+        /// </summary>
+        /// <param name="info">Server's messege</param>
         public void LoginRequest(string info)
         {
             Login_button.Enabled = true;
@@ -94,7 +113,7 @@ namespace projuct2
             {
                 MessageBox.Show("Captcha answer is incorrect");
             }
-            else if (parts[1].StartsWith("user"))
+            else if (parts[1].StartsWith("user")) // if the user is already logged in.
             {
                 MessageBox.Show("The user is already logged in");
             }
@@ -112,11 +131,21 @@ namespace projuct2
         {
 
         }
+        /// <summary>
+        /// Sends the server a reqeust for a random capthca.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Capthca_checkbox_CheckedChanged(object sender, EventArgs e)
         {
             if(Capthca_checkbox.Checked)
                 Tikshoret.SendMessage("getcaptcha:");
         }
+        /// <summary>
+        /// Transfers the user to a ForgotPassword form to renew his passoword. Closes login form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ForgotPasswordButton_Click(object sender, EventArgs e)
         {
             Hide();

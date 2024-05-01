@@ -442,7 +442,7 @@
             this.WinnerAnnouncementLabel.Location = new System.Drawing.Point(548, 175);
             this.WinnerAnnouncementLabel.MaximumSize = new System.Drawing.Size(500, 500);
             this.WinnerAnnouncementLabel.Name = "WinnerAnnouncementLabel";
-            this.WinnerAnnouncementLabel.Size = new System.Drawing.Size(306, 64);
+            this.WinnerAnnouncementLabel.Size = new System.Drawing.Size(306, 77);
             this.WinnerAnnouncementLabel.TabIndex = 63;
             this.WinnerAnnouncementLabel.Text = "The winner is ";
             this.WinnerAnnouncementLabel.Visible = false;
